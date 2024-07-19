@@ -5,6 +5,15 @@ import io
 import plotly.express as px
 import plotly.graph_objects as go
 
+
+
+st.set_page_config(
+    page_title="RAK TECSCI",
+    page_icon="icon.ico",
+    layout="wide"
+)
+st.title("Banco de dados das RAKs")
+
 # Configuração do banco de dados SQLite
 connection = sqlite3.connect('uploaded_files.db')
 cursor = connection.cursor()
@@ -36,18 +45,15 @@ def validate_csv(file):
         return False
 
 
-# Interface do Usuário
-st.set_page_config(layout="wide")
-st.title("Banco de dados das RAKs")
-st.write("## Envio de dados:")
-uploaded_file = st.file_uploader("Escolha um arquivo CSV", type="csv")
-
-if uploaded_file is not None:
-    if validate_csv(uploaded_file):
-        save_file(uploaded_file)
-        st.success("Arquivo carregado com sucesso!")
-    else:
-        st.error("O arquivo CSV não está na formatação correta.")
+with st.sidebar:
+    st.write("## Envio de dados:")
+    uploaded_file = st.file_uploader("Escolha um arquivo CSV", type="csv")
+    if uploaded_file is not None:
+        if validate_csv(uploaded_file):
+            save_file(uploaded_file)
+            st.success("Arquivo carregado com sucesso!")
+        else:
+            st.error("O arquivo CSV não está na formatação correta.")
 
 
 # Carregar os arquivos armazenados
@@ -79,19 +85,22 @@ with col1:
         line=dict(dash="dash"),
     ))
     st.write("## POTENCIA MÉDIA:")
-    st.plotly_chart(line_chart)
+    st.plotly_chart(line_chart, use_container_width=True)
 
 ## EXIBIR A QUANTIDADE DE RAKS TESTADAS POR DIA
 with col2:
     bar_chart = px.bar(df.groupby(df["HORARIO"].dt.date).size())
     bar_chart.update_traces(showlegend=False)
     st.write("## Testes realizados por dia:")
-    st.plotly_chart(bar_chart)
+    st.plotly_chart(bar_chart, use_container_width=True)
 
 
 ## EXIBIR A DB
-st.write("## Base de Dados:")
-st.write(df)
+df['RESULTADO COMUNICACAO'] = df['RESULTADO RF'].apply(lambda x: '✅' if x == 'OK' else '❌')
+df['RESULTADO RF'] = df['RESULTADO RF'].apply(lambda x: '✅' if x == 'OK' else '❌')
+
+with st.expander("Base de dados:"):   
+    st.dataframe(df, hide_index=True)
 
 
     
