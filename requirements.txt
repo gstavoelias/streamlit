@@ -1,4 +1,2 @@
-plotly
-pandas
-sqlite3
-io
+pandas==1.5.3
+plotly==5.10.0
