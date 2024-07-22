@@ -88,7 +88,7 @@ with st.sidebar:
 
 ## Exibição do piechart com a quantidade de RAKs testadas
 values = [len(df[df["RESULTADO RF"] == "OK"]), len(df[df["RESULTADO RF"] == "NG"])]
-st.write(f"## RAKs Testadas: {len(df["DEVEUI"]) or 0}")
+st.write(f"## RAKs Testadas: {len(df['DEVEUI'])}")
 pie_chart = px.pie(names=["OK", "NG"], values=values)
 st.plotly_chart(pie_chart)
 
