@@ -63,6 +63,8 @@ def validate_csv(file):
 
 # Carregar os arquivos armazenados
 df = load_df()
+if df is None:
+    st.info("Não há dados disponiveis", icon="i")
 
 # Widget do Menu Lateral, contém o file uploader e a opção de baixar arquivos
 with st.sidebar:
