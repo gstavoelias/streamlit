@@ -123,10 +123,56 @@ df = df.drop(["POTENCIA MINIMA", "POTENCIA MAXIMA", "POTENCIA MEDIA", "SAMPLES"]
 with st.expander("BASE DE DADOS:"):   
     st.dataframe(df, 
                  column_config= {
-                  "POTENCIA": st.column_config.LineChartColumn("POTÊNCIA"),
+                  "POTENCIA": st.column_config.LineChartColumn(),
                  },
                  hide_index=True)
 
+
+
+#TESTE
+df2 = pd.read_csv("./BURNIN.csv")
+
+tensao_painel_cols = [col for col in df2.columns if 'tensao_painel' in col]
+tensao_painel_cols.reverse()
+df2['TENSÃO PAINEL'] = df2.apply(lambda row: [row[col] for col in tensao_painel_cols], axis=1)
+df2 = df2.drop(tensao_painel_cols, axis=1)
+
+tensao_motor_cols = [col for col in df2.columns if 'tensao_motor' in col]
+tensao_motor_cols.reverse()
+df2['TENSÃO MOTOR'] = df2.apply(lambda row: [row[col] for col in tensao_motor_cols], axis=1)
+df2 = df2.drop(tensao_motor_cols, axis=1)
+
+corrente_motor_cols = [col for col in df2.columns if 'corrente_motor' in col]
+corrente_motor_cols.reverse()
+df2['CORRENTE MOTOR'] = df2.apply(lambda row: [row[col] for col in corrente_motor_cols], axis=1)
+df2 = df2.drop(corrente_motor_cols, axis=1)
+
+estado_bateria_cols = [col for col in df2.columns if 'estado_bateria' in col]
+estado_bateria_cols.reverse()
+df2['ESTADO BATERIA'] = df2.apply(lambda row: [row[col] for col in estado_bateria_cols], axis=1)
+df2 = df2.drop(estado_bateria_cols, axis=1)
+
+temperatura_cols = [col for col in df2.columns if 'temperatura' in col]
+temperatura_cols.reverse()
+df2['TEMPERATURA PAINEL'] = df2.apply(lambda row: [row[col] for col in temperatura_cols], axis=1)
+df2 = df2.drop(temperatura_cols, axis=1)
+
+posicao_angular_cols = [col for col in df2.columns if 'posicao_angular' in col]
+posicao_angular_cols.reverse()
+df2['POSIÇÃO ANGULAR'] = df2.apply(lambda row: [row[col] for col in posicao_angular_cols], axis=1)
+df2 = df2.drop(posicao_angular_cols, axis=1)
+
+with st.expander("EXEMPLO BURNIN"):
+    st.dataframe(df2,
+                 column_config={
+                     "TENSÃO PAINEL": st.column_config.LineChartColumn(),
+                     "TENSÃO MOTOR": st.column_config.LineChartColumn(),
+                     "CORRENTE MOTOR": st.column_config.LineChartColumn(),
+                     "ESTADO BATERIA": st.column_config.LineChartColumn(),
+                     "TEMPERATURA PAINEL": st.column_config.LineChartColumn(),
+                     "POSIÇÃO ANGULAR": st.column_config.LineChartColumn(),
+                 },
+                 hide_index= True)
 
 # Fechar a conexão com o banco de dados
 connection.close()
