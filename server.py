@@ -4,11 +4,10 @@ import pandas as pd
 
 class Server:
     def __init__(self):
-        self.ip_addr = "https://ppc.tecsci.com.br/api/v1.0"
+        self.ip_addr = "http://localhost:8087/api/v1.0" #https://ppc.tecsci.com.br/api/v1.0
         self.token = None
-        self.df = None
         self.login()
-        self.get_burnin_data()
+
 
 
     def login(self):
@@ -34,8 +33,59 @@ class Server:
         df = df[df['horario'] >= data_limite]
         df = df.drop_duplicates(subset=['controladora_id'], keep="last")
         df = df.reset_index()
-        # df = df[df['controladora_id'].str.startswith('0124')]
-        self.df = df
+        return df
+
+    
+    def get_status_data(self):
+        db_data = []
+        page = 1
+        while True:
+            response = requests.get(self.ip_addr + "/tcu", 
+                                    headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {self.token}'},
+                                    params={"per_page": 100, "page": page}).json()
+            if not response:
+                break
+            db_data.extend(response)
+            page += 1
+        df = pd.json_normalize(db_data)
+        df = df.dropna(subset=['status.status_id.nome'])
+        return df
+    
+    def get_tcu_history(self, serial_number):
+        response = requests.get(self.ip_addr + f"/tcu/{serial_number}", 
+                                headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {self.token}'},
+                                ).json().get("status")
+        df = pd.json_normalize(response)
+        df['updated_at'] = pd.to_datetime(df['updated_at'])
+        df = df.sort_values('updated_at')
+        df = df[["status_id.nome", "operador_id.nome", "created_at"]]
+        
+        return df
+
+    def get_operators(self):
+        operadores = [{"nome": user["nome"].rstrip(), "id": user["id"]} 
+                      for user in requests.get(self.ip_addr + "/operador", headers={'Authorization': f'Bearer {self.token}'}).json()]
+        return operadores
+    
+    def get_locals(self):
+        locals = [{"nome": local["nome"].rstrip(), "id": local["id"]} 
+                      for local in requests.get(self.ip_addr + "/status", headers={'Authorization': f'Bearer {self.token}'}).json()]
+        return locals
+    
+
+    def change_tcu_status(self, serial_number, operator_id, status_id):
+        data = {
+            "controladora_id": serial_number,
+            "status_id": status_id,
+            "operador_id": operator_id
+        }
+        response = requests.post(self.ip_addr + "/status_tcu", json=data,  headers={'Authorization': f'Bearer {self.token}'})
+        if response.status_code == 201:
+            return {"success": True, "message": "Status alterado com sucesso!"}
+        else:
+            # Tentar retornar uma mensagem mais detalhada do servidor (se disponível)
+            error_message = response.json().get("message", "Erro desconhecido")
+            return {"success": False, "message": f"Falha ao alterar status: {error_message}"}
 
 
 

@@ -8,6 +8,7 @@ st.set_page_config(
     page_icon="icon.ico",
     layout="wide"
 )
+
 st.title("Dashboard - Burn In")
 with st.sidebar:
     st.image("logo-dark.png")
@@ -17,12 +18,13 @@ with st.sidebar:
 
 
 server = Server()
-with st.expander(f"BASE DE DADOS - {server.df.shape[0]} testes"):
-    st.dataframe(server.df)
+df = server.get_burnin_data()
+with st.expander(f"BASE DE DADOS - {df.shape[0]} testes"):
+    st.dataframe(df)
 
 
 st.write("## Testes por dia:")
-data = server.df.groupby(server.df["horario"].dt.date).size()
+data = df.groupby(df["horario"].dt.date).size()
 bar_chart = px.bar(data, x=data.index, y=data.values)
 bar_chart.update_traces(showlegend=False)
 bar_chart.update_layout(
@@ -33,6 +35,6 @@ bar_chart.update_layout(
 st.plotly_chart(bar_chart, use_container_width=True)
 
 st.write("## Duração dos testes:")
-st.write(f"- Média: {server.df["duracao"].mean():.2f}")
-st.write(f"- Máximo: {server.df["duracao"].max():.2f}")
-st.write(f"- Mínimo: {server.df["duracao"].min():.2f}")
+st.write(f"- Média: {df["duracao"].mean():.2f}")
+st.write(f"- Máximo: {df["duracao"].max():.2f}")
+st.write(f"- Mínimo: {df["duracao"].min():.2f}")
