@@ -22,7 +22,9 @@ class Server:
         last_datetime = data
         while True:
             response = requests.get(self.ip_addr + "/teste_burnin", 
-                                    headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {self.token}'},
+                                    headers={'Content-Type': 'application/json',
+                                            'Authorization': f'Bearer {self.token}', 
+                                            'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
                                     params={"per_page": 100,
                                             "page": page,
                                             "filter": f"datetime >= '{last_datetime}'"
@@ -37,13 +39,42 @@ class Server:
             .reset_index()
         return df
     
-    def get_communication_data(self):
+    def get_communication_data(self, data):
         db_data = []
         page = 1
+        last_datetime = data
         while True:
             response = requests.get(self.ip_addr + "/teste_firmware", 
-                                    headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {self.token}'},
-                                    params={"per_page": 100, "page": page}).json()
+                                    headers={'Content-Type': 'application/json',
+                                            'Authorization': f'Bearer {self.token}', 
+                                            'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
+                                    params={"per_page": 100,
+                                            "page": page,
+                                            "filter": f"datetime >= '{last_datetime}'"
+                                            }).json()
+            if not response:
+                break
+            db_data.extend(response)
+            page += 1
+        df = pd.json_normalize(db_data)
+        df['horario'] = pd.to_datetime(df['horario'], format='ISO8601')
+        df = df.drop_duplicates(subset=['controladora_id'], keep="last")\
+            .reset_index()
+        return df
+    
+    def get_power_data(self, data):
+        db_data = []
+        page = 1
+        last_datetime = data
+        while True:
+            response = requests.get(self.ip_addr + "/teste_potencia", 
+                                    headers={'Content-Type': 'application/json',
+                                            'Authorization': f'Bearer {self.token}', 
+                                            'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
+                                    params={"per_page": 100,
+                                            "page": page,
+                                            "filter": f"datetime >= '{last_datetime}'"
+                                            }).json()
             if not response:
                 break
             db_data.extend(response)
