@@ -17,7 +17,7 @@ class Server:
             response = requests.post(self.ip_addr + "/auth/login",
                                     headers={'Content-Type': 'application/json'}, 
                                     json={'username': 'gustavo.elias', 'password': '12345678'}).json()
-            self.token = response.get("access_token")
+            # self.token = response.get("access_token")
         except Exception as e:
             self.excecao = e.args
             # self.response = response
