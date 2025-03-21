@@ -6,15 +6,16 @@ class Server:
     def __init__(self):
         self.ip_addr = "https://ppc.tecsci.com.br/api/v1.0"
         self.token = None
+        self.response = None
         self.login()
 
 
 
     def login(self):
-        response = requests.post(self.ip_addr + "/auth/login",
+        self.response = requests.post(self.ip_addr + "/auth/login",
                                 headers={'Content-Type': 'application/json'}, 
                                 json={'username': 'gustavo.elias', 'password': '12345678'}).json()
-        self.token = response.get("access_token")
+        self.token = self.response.get("access_token")
 
     def get_burnin_data(self, data):
         db_data = []

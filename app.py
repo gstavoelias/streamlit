@@ -46,7 +46,11 @@ def update_df():
     """Atualiza o DataFrame com base na opção selecionada"""
     period = st.session_state.selected_period
     start_date = get_start_date(period) if period else get_start_date("SEMANA")
-    st.session_state.df = server.get_burnin_data(start_date)
+    try:
+        st.session_state.df = server.get_burnin_data(start_date)
+    except:
+        st.write(server.response.status_code)
+        st.write(server.response)
 
 # Executa a primeira carga de dados
 update_df()
