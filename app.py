@@ -14,8 +14,7 @@ st.set_page_config(
 st.title("Dashboard - Burn In")
 with st.sidebar:
     st.image("logo-dark.png")
-    st.write("#")
-    st.write("#")
+
 
 server = Server()
 
@@ -47,8 +46,8 @@ def update_df():
     period = st.session_state.selected_period
     start_date = get_start_date(period) if period else get_start_date("SEMANA")
     st.session_state.df = server.get_burnin_data(start_date)
-    st.write(server.response)
-    st.write(server.excecao)
+    if server.excecao is not None:
+        st.error(f"Houve um erro: {server.excecao}")
 
 # Executa a primeira carga de dados
 update_df()
