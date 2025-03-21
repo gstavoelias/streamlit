@@ -19,8 +19,8 @@ class Server:
                                     json={'username': 'gustavo.elias', 'password': '12345678'}).json()
             self.token = response.get("access_token")
         except Exception as e:
-            self.response = response
             self.excecao = e.args
+            # self.response = response
 
     def get_burnin_data(self, data):
         if not self.token:
