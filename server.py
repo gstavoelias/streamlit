@@ -11,38 +11,33 @@ class Server:
 
 
     def login(self):
-        try:
-            response = requests.post(self.ip_addr + "/auth/login",
-                                    headers={'Content-Type': 'application/json'}, 
-                                    json={'username': 'matheus.malta', 'password': '12345678'}).json()
-            self.token = response.get("access_token")
-        except Exception as e:
-            print(e.args)
+        response = requests.post(self.ip_addr + "/auth/login",
+                                headers={'Content-Type': 'application/json'}, 
+                                json={'username': 'gustavo.elias', 'password': '12345678'}).json()
+        self.token = response.get("access_token")
 
     def get_burnin_data(self, data):
-        try:
-            db_data = []
-            page = 1
-            last_datetime = data
-            while True:
-                response = requests.get(self.ip_addr + "/teste_burnin", 
-                                        headers={'Content-Type': 'application/json',
-                                                'Authorization': f'Bearer {self.token}'},
-                                        params={"per_page": 100,
-                                                "page": page,
-                                                "filter": f"datetime >= '{last_datetime}'"
-                                                }).json()
-                if not response:
-                    break
-                db_data.extend(response)
-                page += 1
-            df = pd.json_normalize(db_data)
-            df['horario'] = pd.to_datetime(df['horario'], format='ISO8601')
-            df = df.drop_duplicates(subset=['controladora_id'], keep="last")\
-                .reset_index()
-            return df
-        except Exception as e:
-            return e.args
+        db_data = []
+        page = 1
+        last_datetime = data
+        while True:
+            response = requests.get(self.ip_addr + "/teste_burnin", 
+                                    headers={'Content-Type': 'application/json',
+                                            'Authorization': f'Bearer {self.token}', 
+                                            'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
+                                    params={"per_page": 100,
+                                            "page": page,
+                                            "filter": f"datetime >= '{last_datetime}'"
+                                            }).json()
+            if not response:
+                break
+            db_data.extend(response)
+            page += 1
+        df = pd.json_normalize(db_data)
+        df['horario'] = pd.to_datetime(df['horario'], format='ISO8601')
+        df = df.drop_duplicates(subset=['controladora_id'], keep="last")\
+            .reset_index()
+        return df
     
     def get_communication_data(self, data):
         db_data = []
