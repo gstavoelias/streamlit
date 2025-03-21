@@ -7,18 +7,20 @@ class Server:
         self.ip_addr = "https://ppc.tecsci.com.br/api/v1.0"
         self.token = None
         self.response = None
+        self.excecao = None
         self.login()
 
 
 
     def login(self):
         try:
-            self.response = requests.post(self.ip_addr + "/auth/login",
+            response = requests.post(self.ip_addr + "/auth/login",
                                     headers={'Content-Type': 'application/json'}, 
                                     json={'username': 'gustavo.elias', 'password': '12345678'}).json()
-            self.token = self.response.get("access_token")
-        except:
-            pass
+            self.token = response.get("access_token")
+        except Exception as e:
+            self.response = response.status_code
+            self.excecao = e.args
 
     def get_burnin_data(self, data):
         if not self.token:
