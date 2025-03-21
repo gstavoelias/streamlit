@@ -14,13 +14,24 @@ class Server:
 
     def login(self):
         try:
-            response = requests.post(self.ip_addr + "/auth/login",
-                                    headers={'Content-Type': 'application/json'}, 
-                                    json={'username': 'gustavo.elias', 'password': '12345678'}).json()
-            # self.token = response.get("access_token")
+            response = requests.post(
+                self.ip_addr + "/auth/login",
+                headers={'Content-Type': 'application/json'}, 
+                json={'username': 'gustavo.elias', 'password': '12345678'}
+            )
+
+            # Armazena status e texto da resposta para debugging
+            self.response = response.text
+
+            if response.status_code != 200:
+                self.excecao = f"Erro {response.status_code} - {response.reason}"
+                return
+            
+            self.token = response.json().get("access_token")
+
         except Exception as e:
             self.excecao = e.args
-            # self.response = response
+
 
     def get_burnin_data(self, data):
         if not self.token:
