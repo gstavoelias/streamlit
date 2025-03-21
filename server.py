@@ -56,7 +56,7 @@ class Server:
         df['horario'] = pd.to_datetime(df['horario'], format='ISO8601')
         df = df.drop_duplicates(subset=['controladora_id'], keep="last")\
             .reset_index()
-        df = df[~df['operador'].isin(['Charles', 'Valciscley'])]
+        df = df[~df['operador_id.nome'].isin(['Charles', 'Valciscley'])]
         return df
     
     def get_communication_data(self, data):
