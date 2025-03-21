@@ -11,10 +11,13 @@ class Server:
 
 
     def login(self):
-        response = requests.post(self.ip_addr + "/auth/login",
-                                headers={'Content-Type': 'application/json'}, 
-                                json={'username': 'gustavo.elias', 'password': '12345678'}).json()
-        self.token = response.get("access_token")
+        try:
+            response = requests.post(self.ip_addr + "/auth/login",
+                                    headers={'Content-Type': 'application/json'}, 
+                                    json={'username': 'gustavo.elias', 'password': '12345678'}).json()
+            self.token = response.get("access_token")
+        except Exception as e:
+            print(e.args)
 
     def get_burnin_data(self, data):
         db_data = []
