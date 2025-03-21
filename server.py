@@ -27,8 +27,7 @@ class Server:
             while True:
                 response = requests.get(self.ip_addr + "/teste_burnin", 
                                         headers={'Content-Type': 'application/json',
-                                                'Authorization': f'Bearer {self.token}', 
-                                                'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
+                                                'Authorization': f'Bearer {self.token}'},
                                         params={"per_page": 100,
                                                 "page": page,
                                                 "filter": f"datetime >= '{last_datetime}'"
