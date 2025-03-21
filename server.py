@@ -12,12 +12,17 @@ class Server:
 
 
     def login(self):
-        self.response = requests.post(self.ip_addr + "/auth/login",
-                                headers={'Content-Type': 'application/json'}, 
-                                json={'username': 'gustavo.elias', 'password': '12345678'}).json()
-        self.token = self.response.get("access_token")
+        try:
+            self.response = requests.post(self.ip_addr + "/auth/login",
+                                    headers={'Content-Type': 'application/json'}, 
+                                    json={'username': 'gustavo.elias', 'password': '12345678'}).json()
+            self.token = self.response.get("access_token")
+        except:
+            pass
 
     def get_burnin_data(self, data):
+        if not self.token:
+            return
         db_data = []
         page = 1
         last_datetime = data
