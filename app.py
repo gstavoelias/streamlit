@@ -27,7 +27,7 @@ def get_start_date(period):
     hoje = datetime.today()
 
     if period == "SEMANA":
-        inicio = hoje - timedelta(days=hoje.weekday())  # Segunda-feira da semana atual
+        inicio = hoje - timedelta(days=(hoje.weekday() + 1))  # Domingo da semana atual
     elif period == "MÊS":
         inicio = hoje.replace(day=1)  # Primeiro dia do mês atual
     elif period == "SEMESTRE":

@@ -53,6 +53,8 @@ class Server:
             db_data.extend(response)
             page += 1
         df = pd.json_normalize(db_data)
+        if df.empty:
+            return df
         df['horario'] = pd.to_datetime(df['horario'], format='ISO8601')
         df = df.drop_duplicates(subset=['controladora_id'], keep="last")\
             .reset_index()
