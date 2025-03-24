@@ -72,6 +72,7 @@ bar_chart.update_layout(
     )
 )
 st.plotly_chart(bar_chart, use_container_width=True)
+st.text(f"TOTAL: {len(st.session_state.df)}")
 
 # Contar quantos testes cada operador realizou
 operator_counts = df["operador_id.nome"].value_counts().reset_index()
@@ -84,6 +85,8 @@ pie_chart = px.pie(
     values="Quantidade", 
     title="Testes realizados por operador",
 )
+
+
 
 # Exibir no Streamlit
 st.plotly_chart(pie_chart, use_container_width=True)
