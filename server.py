@@ -106,6 +106,7 @@ class Server:
         df = df.drop_duplicates(subset=['controladora_id'], keep="last")\
             .reset_index()
         return df
+    
 
     
     def get_status_data(self):
