@@ -3,8 +3,8 @@ import pandas as pd
 
 
 class Server:
-    def __init__(self):
-        self.ip_addr = "https://ppc.tecsci.com.br/api/v1.0"
+    def __init__(self, server_url="https://ppc.tecsci.com.br/api/v1.0"):
+        self.server_url = server_url
         self.token = None
         self.response = None
         self.excecao = None
@@ -15,7 +15,7 @@ class Server:
     def login(self):
         try:
             response = requests.post(
-                self.ip_addr + "/auth/login",
+                self.server_url + "/auth/login",
                 headers={'Content-Type': 'application/json'}, 
                 json={'username': 'gustavo.elias', 'password': '12345678'}
             )
@@ -31,6 +31,18 @@ class Server:
 
         except Exception as e:
             self.excecao = e.args
+    
+    def _get_request(self, endpoint, params=None):
+        return requests.get(self.server_url + endpoint, 
+                            headers= {"Authorization": f"Bearer {self.token}"},
+                            params = params
+                            ).json()
+    
+
+    def _post_request(self, endpoint, data=None):
+        return requests.post(self.server_url + endpoint, 
+                            json = data, 
+                            headers= {"Authorization": f"Bearer {self.token}", "Content-Type": "application/json"})
 
 
     def get_burnin_data(self, data):
@@ -40,7 +52,7 @@ class Server:
         page = 1
         last_datetime = data
         while True:
-            response = requests.get(self.ip_addr + "/teste_burnin", 
+            response = requests.get(self.server_url + "/teste_burnin", 
                                     headers={'Content-Type': 'application/json',
                                             'Authorization': f'Bearer {self.token}', 
                                             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
@@ -66,7 +78,7 @@ class Server:
         page = 1
         last_datetime = data
         while True:
-            response = requests.get(self.ip_addr + "/teste_firmware", 
+            response = requests.get(self.server_url + "/teste_firmware", 
                                     headers={'Content-Type': 'application/json',
                                             'Authorization': f'Bearer {self.token}', 
                                             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
@@ -90,7 +102,7 @@ class Server:
         page = 1
         last_datetime = data
         while True:
-            response = requests.get(self.ip_addr + "/teste_potencia", 
+            response = requests.get(self.server_url + "/teste_potencia", 
                                     headers={'Content-Type': 'application/json',
                                             'Authorization': f'Bearer {self.token}', 
                                             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
@@ -115,7 +127,7 @@ class Server:
         db_data = []
         page = 1
         while True:
-            response = requests.get(self.ip_addr + "/tcu", 
+            response = requests.get(self.server_url + "/tcu", 
                                     headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {self.token}'},
                                     params={"per_page": 100, "page": page}).json()
             if not response:
@@ -127,7 +139,7 @@ class Server:
         return df
     
     def get_tcu_history(self, serial_number):
-        response = requests.get(self.ip_addr + f"/tcu/{serial_number}", 
+        response = requests.get(self.server_url + f"/tcu/{serial_number}", 
                                 headers={'Content-Type': 'application/json', 'Authorization': f'Bearer {self.token}'},
                                 ).json().get("status")
         df = pd.json_normalize(response)
@@ -139,12 +151,12 @@ class Server:
 
     def get_operators(self):
         operadores = [{"nome": user["nome"].rstrip(), "id": user["id"]} 
-                      for user in requests.get(self.ip_addr + "/operador", headers={'Authorization': f'Bearer {self.token}'}).json()]
+                      for user in requests.get(self.server_url + "/operador", headers={'Authorization': f'Bearer {self.token}'}).json()]
         return operadores
     
     def get_locals(self):
         locals = [{"nome": local["nome"].rstrip(), "id": local["id"]} 
-                      for local in requests.get(self.ip_addr + "/status", headers={'Authorization': f'Bearer {self.token}'}).json()]
+                      for local in requests.get(self.server_url + "/status", headers={'Authorization': f'Bearer {self.token}'}).json()]
         return locals
     
 
@@ -154,13 +166,98 @@ class Server:
             "status_id": status_id,
             "operador_id": operator_id
         }
-        response = requests.post(self.ip_addr + "/status_tcu", json=data,  headers={'Authorization': f'Bearer {self.token}'})
+        response = requests.post(self.server_url + "/status_tcu", json=data,  headers={'Authorization': f'Bearer {self.token}'})
         if response.status_code == 201:
             return {"success": True, "message": "Status alterado com sucesso!"}
         else:
             # Tentar retornar uma mensagem mais detalhada do servidor (se disponível)
             error_message = response.json().get("message", "Erro desconhecido")
             return {"success": False, "message": f"Falha ao alterar status: {error_message}"}
+        
+
+    def post_operator(self, nome, username):
+        data = {
+            "nome": nome,
+            "empresa_id": 1,
+            "username": username,
+            "password": "12345678"
+        }
+        return self._post_request("operador", data)
+    
+    
+    def get_etapa(self):
+        return self._get_request("etapa")
+        
+    def post_etapa(self, nome):
+        data = {
+            "nome": nome
+        }
+        return self._post_request("etapa", data)
+    
+    def get_erro(self):
+        return self._get_request("erro")
+    
+    def post_erro(self, etapa_id, nome):
+        data = {
+            "etapa_id": etapa_id,
+            "nome": nome
+        }
+        return self._post_request("erro", data)
+    
+
+    def get_rft(self):
+        return self._get_request("rft")
+    
+    def post_rft(self, controladora_id, operador_id, error_id, horario):
+        data = {
+            "controladora_id": controladora_id,
+            "operador_id": operador_id,
+            "erro_id": error_id,
+            "horario": horario
+        }
+        return self._post_request("rft", data)
 
 
+    def get_materials(self):
+        return self._get_request("material")
+    
+    def post_material(self, codigo, descricao):
+        data = {
+            "id": codigo,
+            "nome": descricao
+        }
+        return self._post_request("material", data)
+    
+    def get_solucao(self):
+        return self._get_request("solucao")
+    
+    def post_solucao(self, nome):
+        data = {
+            "nome": nome
+        }
+        return self._post_request("solucao", data)
+    
 
+    def get_manutencao(self):
+        return self._get_request("manutencao")
+
+    def post_manutencao(self, operador_id, rft_id, solucao_id, horario, duracao):
+        data = {
+            "operador_id": operador_id,
+            "rft_id": rft_id,
+            "solucao_id": solucao_id,
+            "horario": horario,
+            "duracao": duracao
+        }
+        return self._post_request("manutencao", data)
+
+    def get_perdas(self):
+        return self._get_request("perdas")
+    
+    def post_perdas(self, material_id, manutencao_id, quantidade):
+        data = {
+            "material_id": material_id,
+            "manutencao_id": manutencao_id,
+            "quantidade": quantidade
+        }
+        return self._post_request("perdas", data)

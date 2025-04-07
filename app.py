@@ -17,6 +17,9 @@ def get_start_date(period):
     hoje = datetime.today()
     if period == "SEMANA":
         return hoje - timedelta(days=(hoje.weekday() + 1))
+    elif period == "ÚLTIMA SEMANA":
+        inicio_semana_atual = hoje - timedelta(days=(hoje.weekday() + 1))
+        return inicio_semana_atual - timedelta(days=7)
     elif period == "MÊS":
         return hoje.replace(day=1)
     elif period == "SEMESTRE":
@@ -36,8 +39,8 @@ with st.sidebar:
 
     st.markdown("### Selecione o intervalo de tempo")
     st.session_state.selected_period = st.selectbox(
-        "Período", ["SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"],
-        index=["SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"].index(st.session_state.selected_period)
+        "Período", ["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"],
+        index=["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"].index(st.session_state.selected_period)
     )
 
 # Cabeçalho principal
