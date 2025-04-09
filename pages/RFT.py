@@ -9,12 +9,13 @@ with st.sidebar:
 
 
 st.title("Relatório de Falhas das TCUs TECSCI")
-server = Server("http://127.0.0.1:8087/api/v1.0/")
-
-
 st.header("Falhas por dia")
-response = server.get_rft()
-df = pd.json_normalize(response)
+
+# server = Server("http://127.0.0.1:8087/api/v1.0/")
+# response = server.get_rft()
+# df = pd.json_normalize(response)
+df = pd.read_csv("rft.csv")
+
 df["horario"] = pd.to_datetime(df["horario"])
 data = df.groupby(df["horario"].dt.date).size()
 bar_chart = px.bar(data, x=data.index, y=data.values,color_discrete_sequence=px.colors.sequential.Inferno)
