@@ -13,22 +13,29 @@ if "selected_period" not in st.session_state:
     st.session_state.selected_period = "SEMANA"
 
 # Função para calcular a data de início com base no período
-def get_start_date(period):
+def get_date_filter(period):
     hoje = datetime.today()
     if period == "SEMANA":
-        return hoje - timedelta(days=(hoje.weekday() + 1))
+        start = hoje - timedelta(days=(hoje.weekday() + 1))
+        return f"datetime >= '{start}'"
     elif period == "ÚLTIMA SEMANA":
-        inicio_semana_atual = hoje - timedelta(days=(hoje.weekday() + 1))
-        return inicio_semana_atual - timedelta(days=7)
+        fim_ultima = hoje - timedelta(days=(hoje.weekday() + 1))
+        inicio_ultima = fim_ultima - timedelta(days=7)
+        return f"datetime >= '{inicio_ultima}' and datetime < '{fim_ultima}'"
     elif period == "MÊS":
-        return hoje.replace(day=1)
+        start = hoje.replace(day=1)
+        return f"datetime >= '{start}'"
     elif period == "SEMESTRE":
         primeiro_mes = 1 if hoje.month <= 6 else 7
-        return hoje.replace(month=primeiro_mes, day=1)
+        start = hoje.replace(month=primeiro_mes, day=1)
+        return f"datetime >= '{start}'"
     elif period == "ANO":
-        return hoje.replace(month=1, day=1)
-    else:
-        return None  # TOTAL
+        start = hoje.replace(month=1, day=1)
+        return f"datetime >= '{start}'"
+    else:  # TOTAL
+        return None
+
+
 
 # Sidebar
 with st.sidebar:
@@ -58,13 +65,13 @@ else:
     server = Server()
 
     # Busca os dados
-    start_date = get_start_date(st.session_state.selected_period)
+    filtro = get_date_filter(st.session_state.selected_period)
     if st.session_state.selected_test_type == "Burn In":
-        df = server.get_burnin_data(start_date)
+        df = server.get_burnin_data(filtro)
     elif st.session_state.selected_test_type == "Teste de Comunicação":
-        df = server.get_communication_data(start_date)
+        df = server.get_communication_data(filtro)
     elif st.session_state.selected_test_type == "Teste de Potência":
-        df = server.get_power_data(start_date)
+        df = server.get_power_data(filtro)
     else:
         df = None
 

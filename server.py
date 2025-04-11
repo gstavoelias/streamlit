@@ -45,12 +45,11 @@ class Server:
                             headers= {"Authorization": f"Bearer {self.token}", "Content-Type": "application/json"})
 
 
-    def get_burnin_data(self, data):
+    def get_burnin_data(self, filter=None):
         if not self.token:
             return
         db_data = []
         page = 1
-        last_datetime = data
         while True:
             response = requests.get(self.server_url + "/teste_burnin", 
                                     headers={'Content-Type': 'application/json',
@@ -58,7 +57,7 @@ class Server:
                                             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
                                     params={"per_page": 100,
                                             "page": page,
-                                            "filter": f"datetime >= '{last_datetime}'"
+                                            "filter": filter
                                             }).json()
             if not response:
                 break
@@ -73,10 +72,9 @@ class Server:
         df = df[~df['operador_id.nome'].isin(['Charles', 'Valciscley'])]
         return df
     
-    def get_communication_data(self, data):
+    def get_communication_data(self, filter):
         db_data = []
         page = 1
-        last_datetime = data
         while True:
             response = requests.get(self.server_url + "/teste_firmware", 
                                     headers={'Content-Type': 'application/json',
@@ -84,7 +82,7 @@ class Server:
                                             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
                                     params={"per_page": 100,
                                             "page": page,
-                                            "filter": f"datetime >= '{last_datetime}'"
+                                            "filter": filter
                                             }).json()
             if not response:
                 break
@@ -97,10 +95,9 @@ class Server:
         df = df[~df['operador_id.nome'].isin(['Charles', 'Valciscley'])]
         return df
     
-    def get_power_data(self, data):
+    def get_power_data(self, filter):
         db_data = []
         page = 1
-        last_datetime = data
         while True:
             response = requests.get(self.server_url + "/teste_potencia", 
                                     headers={'Content-Type': 'application/json',
@@ -108,7 +105,7 @@ class Server:
                                             'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"},
                                     params={"per_page": 100,
                                             "page": page,
-                                            "filter": f"datetime >= '{last_datetime}'"
+                                            "filter": filter
                                             }).json()
             if not response:
                 break
