@@ -14,6 +14,7 @@ st.title("Relatório de Falha das TCUs TECSCI")
 # df = pd.json_normalize(response)
 df = pd.read_csv("manutencao.csv")
 
+st.text(f"TOTAL: {len(df)}")
 st.header("Manutenções por dia")
 df["horario"] = pd.to_datetime(df["horario"])
 data = df.groupby(df["horario"].dt.date).size()
@@ -21,7 +22,6 @@ bar_chart = px.bar(data, x=data.index, y=data.values,color_discrete_sequence=px.
 bar_chart.update_traces(showlegend=False)
 bar_chart.update_layout(xaxis=dict(tickvals=list(data.index)))
 st.plotly_chart(bar_chart, use_container_width=True, theme="streamlit")
-st.text(f"TOTAL: {len(df)}")
 
 
 st.header("Soluções por Erro:")
