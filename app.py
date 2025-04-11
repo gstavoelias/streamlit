@@ -33,16 +33,19 @@ def get_start_date(period):
 # Sidebar
 with st.sidebar:
     st.image("logo-dark.png")
-    st.markdown("### Selecione o tipo de teste")
-    test_type = st.selectbox("Tipo de Teste", ["", "Burn In", "Teste de Comunicação", "Teste de Potência"])
+    
+    test_type = st.selectbox("Selecione o tipo de teste", ["", "Burn In", "Teste de Comunicação", "Teste de Potência"])
     st.session_state.selected_test_type = test_type
 
-    st.markdown("### Selecione o intervalo de tempo")
     st.session_state.selected_period = st.selectbox(
-        "Período", ["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"],
+        "Selecione o intervalo de tempo", ["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"],
         index=["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"].index(st.session_state.selected_period)
     )
 
+    empresa_selecionada = st.selectbox(
+        "Selecione a empresa", 
+        ["TODAS", "TECSCI", "Enterplak", "Infinity"]
+    )
 
 # Cabeçalho principal
 if not st.session_state.selected_test_type:
@@ -64,6 +67,9 @@ else:
         df = server.get_power_data(start_date)
     else:
         df = None
+
+    if empresa_selecionada != "TODAS":
+            df = df[df["operador_id.empresa.nome"] == empresa_selecionada]
 
     # Verifica erro na requisição
     if server.excecao is not None:
