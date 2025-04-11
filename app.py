@@ -52,7 +52,7 @@ else:
     st.title(f"Dashboard - {st.session_state.selected_test_type}")
 
     # Inicializa o servidor
-    server = Server("http://127.0.0.1:8087/api/v1.0/")
+    server = Server()
 
     # Busca os dados
     start_date = get_start_date(st.session_state.selected_period)
