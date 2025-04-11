@@ -42,11 +42,7 @@ with st.sidebar:
         "Período", ["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"],
         index=["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"].index(st.session_state.selected_period)
     )
-    st.markdown('### Empresa')
-    st.session_state.selected_company = st.selectbox(
-        "Empresa", ["TECSCI", "Infinity", "Enterplak"],
-        index=["TECSCI", "INFINITY", "ENTERPLAK"].index(st.session_state.selected_period)
-    )
+
 
 # Cabeçalho principal
 if not st.session_state.selected_test_type:
