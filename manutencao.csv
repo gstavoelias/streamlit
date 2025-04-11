@@ -1,0 +1,218 @@
+,duracao,horario,id,operador_id.empresa.id,operador_id.empresa.nome,operador_id.id,operador_id.nome,rft.controladora_id,rft.erro_id.etapa.id,rft.erro_id.etapa.nome,rft.erro_id.id,rft.erro_id.nome,rft.horario,rft.id,rft.operador_id.empresa.id,rft.operador_id.empresa.nome,rft.operador_id.id,rft.operador_id.nome,solucao.id,solucao.nome
+0,180.0,2025-02-26T00:00:00+00:00,1,1,TECSCI,10,Valciscley,0225020106190,1,Pré-testes,11,TCU com corrente alta,2025-02-26T00:00:00+00:00,1,1,TECSCI,7,Joao,2,Substituição de componente
+1,180.0,2025-02-26T00:00:00+00:00,2,1,TECSCI,10,Valciscley,0225020106529,4,Burn In,10,Comunicação serial intermitente,2025-02-26T00:00:00+00:00,2,1,TECSCI,13,Fabiana,9,Regulagem do step up
+2,180.0,2025-02-27T00:00:00+00:00,3,1,TECSCI,10,Valciscley,0225020105119,4,Burn In,9,TCU não ligou na bateria,2025-02-27T00:00:00+00:00,3,1,TECSCI,8,Thiago,2,Substituição de componente
+3,180.0,2025-02-27T00:00:00+00:00,4,1,TECSCI,10,Valciscley,0225020106635,4,Burn In,9,TCU não ligou na bateria,2025-02-27T00:00:00+00:00,4,1,TECSCI,8,Thiago,2,Substituição de componente
+4,180.0,2025-02-27T00:00:00+00:00,5,1,TECSCI,10,Valciscley,0225020107243,3,Teste de Comunicação,3,LED inoperante,2025-02-27T00:00:00+00:00,5,1,TECSCI,8,Thiago,1,Não preenchido
+5,180.0,2025-02-27T00:00:00+00:00,6,1,TECSCI,10,Valciscley,025020105201,4,Burn In,7,LED invertido,2025-02-27T00:00:00+00:00,6,1,TECSCI,2,Gustavo Elias,4,Reencaixe de componentes soltos
+6,180.0,2025-02-27T00:00:00+00:00,7,1,TECSCI,10,Valciscley,0225020107250,4,Burn In,8,TCU não movimentou,2025-02-27T00:00:00+00:00,7,1,TECSCI,16,Silas,5,Reorganização e crimpagem de chicote
+7,180.0,2025-02-27T00:00:00+00:00,8,1,TECSCI,10,Valciscley,0225020106338,4,Burn In,10,Comunicação serial intermitente,2025-02-27T00:00:00+00:00,8,1,TECSCI,2,Gustavo Elias,7,Reconfiguração da TCU e ajuste do número de série
+8,180.0,2025-02-27T00:00:00+00:00,9,1,TECSCI,10,Valciscley,0225020106833,4,Burn In,10,Comunicação serial intermitente,2025-02-27T00:00:00+00:00,9,1,TECSCI,2,Gustavo Elias,7,Reconfiguração da TCU e ajuste do número de série
+9,180.0,2025-02-27T00:00:00+00:00,10,1,TECSCI,10,Valciscley,0225020106833,1,Pré-testes,11,TCU com corrente alta,2025-02-27T00:00:00+00:00,10,1,TECSCI,7,Joao,2,Substituição de componente
+10,180.0,2025-02-27T00:00:00+00:00,11,1,TECSCI,10,Valciscley,0225020107250,1,Pré-testes,1,TCU com corrente baixa,2025-02-27T00:00:00+00:00,11,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+11,180.0,2025-03-05T00:00:00+00:00,12,1,TECSCI,10,Valciscley,0225020108295,3,Teste de Comunicação,3,LED inoperante,2025-03-05T00:00:00+00:00,12,1,TECSCI,7,Joao,1,Não preenchido
+12,180.0,2025-03-05T00:00:00+00:00,13,1,TECSCI,10,Valciscley,0225020108431,4,Burn In,9,TCU não ligou na bateria,2025-03-05T00:00:00+00:00,13,1,TECSCI,8,Thiago,1,Não preenchido
+13,180.0,2025-03-05T00:00:00+00:00,14,1,TECSCI,10,Valciscley,0225020109018,4,Burn In,7,LED invertido,2025-03-05T00:00:00+00:00,14,1,TECSCI,7,Joao,1,Não preenchido
+14,180.0,2025-03-05T00:00:00+00:00,15,1,TECSCI,10,Valciscley,0225020109148,3,Teste de Comunicação,5,TCU não comunica,2025-03-05T00:00:00+00:00,15,1,TECSCI,7,Joao,1,Não preenchido
+15,180.0,2025-03-05T00:00:00+00:00,16,1,TECSCI,10,Valciscley,0225020109582,4,Burn In,7,LED invertido,2025-03-05T00:00:00+00:00,16,1,TECSCI,7,Joao,2,Substituição de componente
+16,180.0,2025-03-05T00:00:00+00:00,17,1,TECSCI,10,Valciscley,0225020108600,1,Pré-testes,11,TCU com corrente alta,2025-03-05T00:00:00+00:00,17,1,TECSCI,7,Joao,1,Não preenchido
+17,180.0,2025-03-06T00:00:00+00:00,18,1,TECSCI,10,Valciscley,0225020106932,1,Pré-testes,1,TCU com corrente baixa,2025-03-06T00:00:00+00:00,18,1,TECSCI,8,Thiago,1,Não preenchido
+18,180.0,2025-03-06T00:00:00+00:00,19,1,TECSCI,10,Valciscley,0225020107331,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,19,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+19,180.0,2025-03-06T00:00:00+00:00,20,1,TECSCI,10,Valciscley,0225020107786,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,20,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+20,180.0,2025-03-06T00:00:00+00:00,21,1,TECSCI,10,Valciscley,0225020107861,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,21,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+21,180.0,2025-03-06T00:00:00+00:00,22,1,TECSCI,10,Valciscley,0225020108271,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,22,1,TECSCI,8,Thiago,2,Substituição de componente
+22,180.0,2025-03-06T00:00:00+00:00,23,1,TECSCI,10,Valciscley,0225020108639,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,23,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+23,180.0,2025-03-06T00:00:00+00:00,24,1,TECSCI,10,Valciscley,0225020108912,4,Burn In,10,Comunicação serial intermitente,2025-03-06T00:00:00+00:00,24,1,TECSCI,11,Lucas Villani,1,Não preenchido
+24,180.0,2025-03-06T00:00:00+00:00,25,1,TECSCI,10,Valciscley,0225020109308,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,25,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+25,180.0,2025-03-06T00:00:00+00:00,26,1,TECSCI,10,Valciscley,0225020109391,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,26,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+26,180.0,2025-03-06T00:00:00+00:00,27,1,TECSCI,10,Valciscley,225020105140,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,27,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+27,180.0,2025-03-06T00:00:00+00:00,28,1,TECSCI,10,Valciscley,225020108806,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,28,1,TECSCI,8,Thiago,2,Substituição de componente
+28,180.0,2025-03-06T00:00:00+00:00,29,1,TECSCI,10,Valciscley,0225020105126,4,Burn In,14,Número de série inválido,2025-03-06T00:00:00+00:00,29,1,TECSCI,16,Silas,6,Regravação do firmware
+29,180.0,2025-03-06T00:00:00+00:00,30,1,TECSCI,10,Valciscley,0225020107731,3,Teste de Comunicação,6,Erro no ADC,2025-03-06T00:00:00+00:00,30,1,TECSCI,8,Thiago,2,Substituição de componente
+30,180.0,2025-03-06T00:00:00+00:00,31,1,TECSCI,10,Valciscley,0225020106840,3,Teste de Comunicação,5,TCU não comunica,2025-03-06T00:00:00+00:00,31,1,TECSCI,12,Mario,4,Reencaixe de componentes soltos
+31,180.0,2025-03-06T00:00:00+00:00,32,1,TECSCI,9,Charles,0225020105782,4,Burn In,8,TCU não movimentou,2025-03-06T00:00:00+00:00,32,1,TECSCI,12,Mario,5,Reorganização e crimpagem de chicote
+32,180.0,2025-03-06T00:00:00+00:00,33,1,TECSCI,10,Valciscley,0225020107687,4,Burn In,10,Comunicação serial intermitente,2025-03-06T00:00:00+00:00,33,1,TECSCI,7,Joao,1,Não preenchido
+33,180.0,2025-03-06T00:00:00+00:00,34,1,TECSCI,10,Valciscley,0225020107717,4,Burn In,10,Comunicação serial intermitente,2025-03-06T00:00:00+00:00,34,1,TECSCI,7,Joao,1,Não preenchido
+34,180.0,2025-03-06T00:00:00+00:00,35,1,TECSCI,10,Valciscley,0225020105195,4,Burn In,10,Comunicação serial intermitente,2025-03-06T00:00:00+00:00,35,1,TECSCI,7,Joao,2,Substituição de componente
+35,180.0,2025-03-06T00:00:00+00:00,36,1,TECSCI,10,Valciscley,0225020109384,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,36,1,TECSCI,8,Thiago,2,Substituição de componente
+36,180.0,2025-03-06T00:00:00+00:00,37,1,TECSCI,10,Valciscley,0225020109384,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,37,1,TECSCI,11,Lucas Villani,3,Ressolda de componente
+37,180.0,2025-03-06T00:00:00+00:00,38,1,TECSCI,9,Charles,0225020109384,3,Teste de Comunicação,5,TCU não comunica,2025-03-06T00:00:00+00:00,38,1,TECSCI,7,Joao,6,Regravação do firmware
+38,180.0,2025-03-06T00:00:00+00:00,39,1,TECSCI,9,Charles,0225020109728,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,39,1,TECSCI,11,Lucas Villani,3,Ressolda de componente
+39,180.0,2025-03-06T00:00:00+00:00,40,1,TECSCI,10,Valciscley,022502010391,4,Burn In,7,LED invertido,2025-03-06T00:00:00+00:00,40,1,TECSCI,11,Lucas Villani,1,Não preenchido
+40,180.0,2025-03-06T00:00:00+00:00,41,1,TECSCI,9,Charles,022502010718,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,41,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+41,180.0,2025-03-06T00:00:00+00:00,42,1,TECSCI,10,Valciscley,0225020107615,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,42,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+42,180.0,2025-03-06T00:00:00+00:00,43,1,TECSCI,9,Charles,0225020107427,4,Burn In,9,TCU não ligou na bateria,2025-03-06T00:00:00+00:00,43,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+43,180.0,2025-03-06T00:00:00+00:00,44,1,TECSCI,10,Valciscley,0225020100711,1,Pré-testes,11,TCU com corrente alta,2025-03-06T00:00:00+00:00,44,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+44,180.0,2025-03-06T00:00:00+00:00,45,1,TECSCI,9,Charles,022502010632,3,Teste de Comunicação,20,Erro na EEPROM,2025-03-06T00:00:00+00:00,45,1,TECSCI,8,Thiago,7,Reconfiguração da TCU e ajuste do número de série
+45,180.0,2025-03-06T00:00:00+00:00,46,1,TECSCI,10,Valciscley,022502010540,3,Teste de Comunicação,5,TCU não comunica,2025-03-06T00:00:00+00:00,46,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+46,180.0,2025-03-07T00:00:00+00:00,48,1,TECSCI,10,Valciscley,0225020105070,3,Teste de Comunicação,3,LED inoperante,2025-03-07T00:00:00+00:00,48,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+47,180.0,2025-03-07T00:00:00+00:00,49,1,TECSCI,10,Valciscley,0225020106288,4,Burn In,9,TCU não ligou na bateria,2025-03-07T00:00:00+00:00,49,1,TECSCI,8,Thiago,2,Substituição de componente
+48,180.0,2025-03-07T00:00:00+00:00,50,1,TECSCI,10,Valciscley,0225020107458,4,Burn In,9,TCU não ligou na bateria,2025-03-07T00:00:00+00:00,50,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+49,180.0,2025-03-07T00:00:00+00:00,51,1,TECSCI,10,Valciscley,0225020108554,4,Burn In,7,LED invertido,2025-03-07T00:00:00+00:00,51,1,TECSCI,12,Mario,4,Reencaixe de componentes soltos
+50,180.0,2025-03-07T00:00:00+00:00,52,1,TECSCI,10,Valciscley,0225020109346,3,Teste de Comunicação,5,TCU não comunica,2025-03-07T00:00:00+00:00,52,1,TECSCI,8,Thiago,2,Substituição de componente
+51,180.0,2025-03-07T00:00:00+00:00,53,1,TECSCI,10,Valciscley,0225020109469,3,Teste de Comunicação,21,Erro no RTC,2025-03-07T00:00:00+00:00,53,1,TECSCI,8,Thiago,2,Substituição de componente
+52,180.0,2025-03-07T00:00:00+00:00,54,1,TECSCI,10,Valciscley,0225020109496,4,Burn In,9,TCU não ligou na bateria,2025-03-07T00:00:00+00:00,54,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+53,180.0,2025-03-07T00:00:00+00:00,55,1,TECSCI,10,Valciscley,0225020109643,4,Burn In,7,LED invertido,2025-03-07T00:00:00+00:00,55,1,TECSCI,11,Lucas Villani,1,Não preenchido
+54,180.0,2025-03-07T00:00:00+00:00,56,1,TECSCI,10,Valciscley,0225020110243,4,Burn In,7,LED invertido,2025-03-07T00:00:00+00:00,56,1,TECSCI,8,Thiago,2,Substituição de componente
+55,180.0,2025-03-07T00:00:00+00:00,57,1,TECSCI,10,Valciscley,0225020108769,3,Teste de Comunicação,6,Erro no ADC,2025-03-07T00:00:00+00:00,57,1,TECSCI,8,Thiago,2,Substituição de componente
+56,180.0,2025-03-07T00:00:00+00:00,58,1,TECSCI,10,Valciscley,0225020109636,3,Teste de Comunicação,5,TCU não comunica,2025-03-07T00:00:00+00:00,58,1,TECSCI,8,Thiago,7,Reconfiguração da TCU e ajuste do número de série
+57,180.0,2025-03-07T00:00:00+00:00,59,1,TECSCI,10,Valciscley,022502011717,1,Pré-testes,11,TCU com corrente alta,2025-03-07T00:00:00+00:00,59,1,TECSCI,8,Thiago,1,Não preenchido
+58,180.0,2025-03-07T00:00:00+00:00,60,1,TECSCI,10,Valciscley,0225020109070,3,Teste de Comunicação,20,Erro na EEPROM,2025-03-07T00:00:00+00:00,60,1,TECSCI,8,Thiago,7,Reconfiguração da TCU e ajuste do número de série
+59,180.0,2025-03-07T00:00:00+00:00,61,1,TECSCI,10,Valciscley,0225020107793,1,Pré-testes,18,Componene solto,2025-03-07T00:00:00+00:00,61,1,TECSCI,8,Thiago,2,Substituição de componente
+60,180.0,2025-03-07T00:00:00+00:00,62,1,TECSCI,9,Charles,0225020109087,4,Burn In,9,TCU não ligou na bateria,2025-03-07T00:00:00+00:00,62,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+61,180.0,2025-03-07T00:00:00+00:00,63,1,TECSCI,9,Charles,0225020107700,4,Burn In,9,TCU não ligou na bateria,2025-03-07T00:00:00+00:00,63,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+62,180.0,2025-03-07T00:00:00+00:00,64,1,TECSCI,9,Charles,0225020107489,4,Burn In,9,TCU não ligou na bateria,2025-03-07T00:00:00+00:00,64,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+63,180.0,2025-03-07T00:00:00+00:00,65,1,TECSCI,9,Charles,022502010721,4,Burn In,9,TCU não ligou na bateria,2025-03-07T00:00:00+00:00,65,1,TECSCI,8,Thiago,2,Substituição de componente
+64,180.0,2025-03-07T00:00:00+00:00,66,1,TECSCI,9,Charles,0225020109261,4,Burn In,7,LED invertido,2025-03-07T00:00:00+00:00,66,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+65,180.0,2025-03-07T00:00:00+00:00,67,1,TECSCI,9,Charles,0225020108844,4,Burn In,9,TCU não ligou na bateria,2025-03-07T00:00:00+00:00,67,1,TECSCI,13,Fabiana,4,Reencaixe de componentes soltos
+66,180.0,2025-03-07T00:00:00+00:00,68,1,TECSCI,9,Charles,0225020100588,4,Burn In,7,LED invertido,2025-03-07T00:00:00+00:00,68,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+67,180.0,2025-03-07T00:00:00+00:00,69,1,TECSCI,9,Charles,0225020107847,3,Teste de Comunicação,5,TCU não comunica,2025-03-07T00:00:00+00:00,69,1,TECSCI,7,Joao,1,Não preenchido
+68,180.0,2025-03-07T00:00:00+00:00,70,1,TECSCI,10,Valciscley,0225020108998,3,Teste de Comunicação,4,Erro na Ponte H,2025-03-07T00:00:00+00:00,70,1,TECSCI,7,Joao,2,Substituição de componente
+69,180.0,2025-03-07T00:00:00+00:00,71,1,TECSCI,9,Charles,0225020110465,1,Pré-testes,11,TCU com corrente alta,2025-03-07T00:00:00+00:00,71,1,TECSCI,11,Lucas Villani,1,Não preenchido
+70,180.0,2025-03-10T00:00:00+00:00,72,1,TECSCI,10,Valciscley,0225020109131,3,Teste de Comunicação,3,LED inoperante,2025-03-10T00:00:00+00:00,72,1,TECSCI,8,Thiago,2,Substituição de componente
+71,180.0,2025-03-10T00:00:00+00:00,73,1,TECSCI,10,Valciscley,0225020110786,4,Burn In,9,TCU não ligou na bateria,2025-03-10T00:00:00+00:00,73,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+72,180.0,2025-03-10T00:00:00+00:00,74,1,TECSCI,10,Valciscley,0225020110083,4,Burn In,9,TCU não ligou na bateria,2025-03-10T00:00:00+00:00,74,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+73,180.0,2025-03-10T00:00:00+00:00,75,1,TECSCI,10,Valciscley,0225020110377,4,Burn In,7,LED invertido,2025-03-10T00:00:00+00:00,75,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+74,180.0,2025-03-10T00:00:00+00:00,76,1,TECSCI,10,Valciscley,0225020108745,3,Teste de Comunicação,6,Erro no ADC,2025-03-10T00:00:00+00:00,76,1,TECSCI,11,Lucas Villani,1,Não preenchido
+75,180.0,2025-03-10T00:00:00+00:00,77,1,TECSCI,10,Valciscley,0225020110717,3,Teste de Comunicação,4,Erro na Ponte H,2025-03-10T00:00:00+00:00,77,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+76,180.0,2025-03-10T00:00:00+00:00,78,1,TECSCI,10,Valciscley,0225020170267,3,Teste de Comunicação,5,TCU não comunica,2025-03-10T00:00:00+00:00,78,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+77,180.0,2025-03-10T00:00:00+00:00,79,1,TECSCI,9,Charles,0225020105584,1,Pré-testes,1,TCU com corrente baixa,2025-03-10T00:00:00+00:00,79,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+78,180.0,2025-03-10T00:00:00+00:00,80,1,TECSCI,9,Charles,0225020105584,3,Teste de Comunicação,5,TCU não comunica,2025-03-10T00:00:00+00:00,80,1,TECSCI,7,Joao,2,Substituição de componente
+79,180.0,2025-03-10T00:00:00+00:00,81,1,TECSCI,9,Charles,0225020105195,4,Burn In,8,TCU não movimentou,2025-03-10T00:00:00+00:00,81,1,TECSCI,7,Joao,1,Não preenchido
+80,180.0,2025-03-10T00:00:00+00:00,82,1,TECSCI,9,Charles,0225020110809,3,Teste de Comunicação,3,LED inoperante,2025-03-10T00:00:00+00:00,82,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+81,180.0,2025-03-10T00:00:00+00:00,83,1,TECSCI,10,Valciscley,0225020108929,1,Pré-testes,17,Componente faltando,2025-03-10T00:00:00+00:00,83,1,TECSCI,13,Fabiana,11,Recalibragem do inclinômetro
+82,180.0,2025-03-11T00:00:00+00:00,84,1,TECSCI,10,Valciscley,0225020108752,4,Burn In,9,TCU não ligou na bateria,2025-03-11T00:00:00+00:00,84,1,TECSCI,7,Joao,1,Não preenchido
+83,180.0,2025-03-11T00:00:00+00:00,87,1,TECSCI,10,Valciscley,0225020109735,3,Teste de Comunicação,3,LED inoperante,2025-03-11T00:00:00+00:00,87,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+84,180.0,2025-03-11T00:00:00+00:00,90,1,TECSCI,10,Valciscley,0225020109933,1,Pré-testes,11,TCU com corrente alta,2025-03-11T00:00:00+00:00,90,1,TECSCI,8,Thiago,2,Substituição de componente
+85,180.0,2025-03-11T00:00:00+00:00,93,1,TECSCI,10,Valciscley,0225020110298,1,Pré-testes,11,TCU com corrente alta,2025-03-11T00:00:00+00:00,93,1,TECSCI,7,Joao,1,Não preenchido
+86,180.0,2025-03-11T00:00:00+00:00,94,1,TECSCI,10,Valciscley,0225020111301,1,Pré-testes,11,TCU com corrente alta,2025-03-11T00:00:00+00:00,94,1,TECSCI,8,Thiago,3,Ressolda de componente
+87,180.0,2025-03-11T00:00:00+00:00,95,1,TECSCI,10,Valciscley,225020109346,4,Burn In,9,TCU não ligou na bateria,2025-03-11T00:00:00+00:00,95,1,TECSCI,7,Joao,2,Substituição de componente
+88,180.0,2025-03-11T00:00:00+00:00,96,1,TECSCI,10,Valciscley,0225020111134,4,Burn In,7,LED invertido,2025-03-11T00:00:00+00:00,96,1,TECSCI,7,Joao,2,Substituição de componente
+89,180.0,2025-03-11T00:00:00+00:00,97,1,TECSCI,10,Valciscley,0225020110496,4,Burn In,8,TCU não movimentou,2025-03-11T00:00:00+00:00,97,1,TECSCI,12,Mario,1,Não preenchido
+90,180.0,2025-03-11T00:00:00+00:00,98,1,TECSCI,10,Valciscley,0225020109100,3,Teste de Comunicação,5,TCU não comunica,2025-03-11T00:00:00+00:00,98,1,TECSCI,12,Mario,6,Regravação do firmware
+91,180.0,2025-03-11T00:00:00+00:00,99,1,TECSCI,10,Valciscley,0225020111097,1,Pré-testes,11,TCU com corrente alta,2025-03-11T00:00:00+00:00,99,1,TECSCI,7,Joao,2,Substituição de componente
+92,180.0,2025-03-11T00:00:00+00:00,100,1,TECSCI,10,Valciscley,0225020107809,1,Pré-testes,11,TCU com corrente alta,2025-03-11T00:00:00+00:00,100,1,TECSCI,8,Thiago,1,Não preenchido
+93,180.0,2025-03-11T00:00:00+00:00,101,1,TECSCI,10,Valciscley,0225020110159,1,Pré-testes,11,TCU com corrente alta,2025-03-11T00:00:00+00:00,101,1,TECSCI,7,Joao,1,Não preenchido
+94,180.0,2025-03-11T00:00:00+00:00,102,1,TECSCI,10,Valciscley,0225020108844,3,Teste de Comunicação,5,TCU não comunica,2025-03-11T00:00:00+00:00,102,1,TECSCI,12,Mario,6,Regravação do firmware
+95,180.0,2025-03-11T00:00:00+00:00,103,1,TECSCI,10,Valciscley,0225020105423,3,Teste de Comunicação,5,TCU não comunica,2025-03-11T00:00:00+00:00,103,1,TECSCI,12,Mario,6,Regravação do firmware
+96,180.0,2025-03-11T00:00:00+00:00,104,1,TECSCI,9,Charles,0225020108936,4,Burn In,10,Comunicação serial intermitente,2025-03-11T00:00:00+00:00,104,1,TECSCI,12,Mario,2,Substituição de componente
+97,180.0,2025-03-12T00:00:00+00:00,108,1,TECSCI,10,Valciscley,0225020111189,1,Pré-testes,1,TCU com corrente baixa,2025-03-12T00:00:00+00:00,108,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+98,180.0,2025-03-12T00:00:00+00:00,109,1,TECSCI,10,Valciscley,0225020109988,4,Burn In,9,TCU não ligou na bateria,2025-03-12T00:00:00+00:00,109,1,TECSCI,8,Thiago,1,Não preenchido
+99,180.0,2025-03-12T00:00:00+00:00,110,1,TECSCI,10,Valciscley,0225020110496,3,Teste de Comunicação,5,TCU não comunica,2025-03-12T00:00:00+00:00,110,1,TECSCI,8,Thiago,5,Reorganização e crimpagem de chicote
+100,180.0,2025-03-12T00:00:00+00:00,111,1,TECSCI,10,Valciscley,0225020110137,4,Burn In,7,LED invertido,2025-03-12T00:00:00+00:00,111,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+101,180.0,2025-03-12T00:00:00+00:00,112,1,TECSCI,10,Valciscley,0225020111264,1,Pré-testes,11,TCU com corrente alta,2025-03-12T00:00:00+00:00,112,1,TECSCI,7,Joao,2,Substituição de componente
+102,180.0,2025-03-12T00:00:00+00:00,113,1,TECSCI,9,Charles,0225020111431,4,Burn In,7,LED invertido,2025-03-12T00:00:00+00:00,113,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+103,180.0,2025-03-13T00:00:00+00:00,115,1,TECSCI,10,Valciscley,0225020111509,1,Pré-testes,11,TCU com corrente alta,2025-03-13T00:00:00+00:00,115,1,TECSCI,7,Joao,8,Substituição do cabo USB-Serial
+104,180.0,2025-03-13T00:00:00+00:00,117,1,TECSCI,10,Valciscley,0225020108660,3,Teste de Comunicação,6,Erro no ADC,2025-03-13T00:00:00+00:00,117,1,TECSCI,8,Thiago,7,Reconfiguração da TCU e ajuste do número de série
+105,180.0,2025-03-13T00:00:00+00:00,118,1,TECSCI,9,Charles,0225020111103,1,Pré-testes,11,TCU com corrente alta,2025-03-13T00:00:00+00:00,118,1,TECSCI,7,Joao,2,Substituição de componente
+106,180.0,2025-03-13T00:00:00+00:00,119,1,TECSCI,9,Charles,0225020111400,4,Burn In,7,LED invertido,2025-03-13T00:00:00+00:00,119,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+107,180.0,2025-03-13T00:00:00+00:00,120,1,TECSCI,9,Charles,0225020109230,3,Teste de Comunicação,3,LED inoperante,2025-03-13T00:00:00+00:00,120,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+108,180.0,2025-03-13T00:00:00+00:00,121,1,TECSCI,9,Charles,0225020111099,2,Teste de Potência,24,Erro na Subtensão da Bateria,2025-03-13T00:00:00+00:00,121,1,TECSCI,7,Joao,1,Não preenchido
+109,180.0,2025-03-13T00:00:00+00:00,122,1,TECSCI,10,Valciscley,0225020112353,3,Teste de Comunicação,5,TCU não comunica,2025-03-13T00:00:00+00:00,122,1,TECSCI,8,Thiago,2,Substituição de componente
+110,180.0,2025-03-13T00:00:00+00:00,123,1,TECSCI,10,Valciscley,0225020106529,3,Teste de Comunicação,5,TCU não comunica,2025-03-13T00:00:00+00:00,123,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+111,180.0,2025-03-13T00:00:00+00:00,124,1,TECSCI,10,Valciscley,0225020107540,3,Teste de Comunicação,5,TCU não comunica,2025-03-13T00:00:00+00:00,124,1,TECSCI,12,Mario,4,Reencaixe de componentes soltos
+112,180.0,2025-03-14T00:00:00+00:00,125,1,TECSCI,10,Valciscley,0225020108226,4,Burn In,10,Comunicação serial intermitente,2025-03-14T00:00:00+00:00,125,1,TECSCI,7,Joao,7,Reconfiguração da TCU e ajuste do número de série
+113,180.0,2025-03-14T00:00:00+00:00,126,1,TECSCI,10,Valciscley,0225020108226,1,Pré-testes,1,TCU com corrente baixa,2025-03-14T00:00:00+00:00,126,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+114,180.0,2025-03-14T00:00:00+00:00,127,1,TECSCI,10,Valciscley,0225020111455,4,Burn In,8,TCU não movimentou,2025-03-14T00:00:00+00:00,127,1,TECSCI,12,Mario,2,Substituição de componente
+115,180.0,2025-03-14T00:00:00+00:00,128,1,TECSCI,10,Valciscley,0225020112278,1,Pré-testes,1,TCU com corrente baixa,2025-03-14T00:00:00+00:00,128,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+116,180.0,2025-03-17T00:00:00+00:00,129,1,TECSCI,10,Valciscley,0225020111011,1,Pré-testes,11,TCU com corrente alta,2025-03-17T00:00:00+00:00,129,1,TECSCI,7,Joao,1,Não preenchido
+117,180.0,2025-03-17T00:00:00+00:00,130,1,TECSCI,10,Valciscley,0225020111011,3,Teste de Comunicação,6,Erro no ADC,2025-03-17T00:00:00+00:00,130,1,TECSCI,13,Fabiana,1,Não preenchido
+118,180.0,2025-03-17T00:00:00+00:00,131,1,TECSCI,9,Charles,0225020107953,1,Pré-testes,1,TCU com corrente baixa,2025-03-17T00:00:00+00:00,131,1,TECSCI,7,Joao,2,Substituição de componente
+119,180.0,2025-03-17T00:00:00+00:00,132,1,TECSCI,9,Charles,0225020108004,4,Burn In,10,Comunicação serial intermitente,2025-03-17T00:00:00+00:00,132,1,TECSCI,13,Fabiana,7,Reconfiguração da TCU e ajuste do número de série
+120,180.0,2025-03-17T00:00:00+00:00,133,1,TECSCI,10,Valciscley,0225020107397,4,Burn In,10,Comunicação serial intermitente,2025-03-17T00:00:00+00:00,133,1,TECSCI,13,Fabiana,7,Reconfiguração da TCU e ajuste do número de série
+121,180.0,2025-03-17T00:00:00+00:00,134,1,TECSCI,10,Valciscley,0225020112278,3,Teste de Comunicação,5,TCU não comunica,2025-03-17T00:00:00+00:00,134,1,TECSCI,7,Joao,7,Reconfiguração da TCU e ajuste do número de série
+122,180.0,2025-03-17T00:00:00+00:00,135,1,TECSCI,10,Valciscley,0225020110373,4,Burn In,9,TCU não ligou na bateria,2025-03-17T00:00:00+00:00,135,1,TECSCI,7,Joao,2,Substituição de componente
+123,180.0,2025-03-17T00:00:00+00:00,136,1,TECSCI,10,Valciscley,0225020111998,3,Teste de Comunicação,5,TCU não comunica,2025-03-17T00:00:00+00:00,136,1,TECSCI,7,Joao,1,Não preenchido
+124,180.0,2025-03-17T00:00:00+00:00,137,1,TECSCI,9,Charles,0225020111793,4,Burn In,7,LED invertido,2025-03-17T00:00:00+00:00,137,1,TECSCI,7,Joao,2,Substituição de componente
+125,180.0,2025-03-17T00:00:00+00:00,138,1,TECSCI,10,Valciscley,0225020111646,1,Pré-testes,11,TCU com corrente alta,2025-03-17T00:00:00+00:00,138,1,TECSCI,7,Joao,2,Substituição de componente
+126,180.0,2025-03-17T00:00:00+00:00,139,1,TECSCI,10,Valciscley,0225020108158,4,Burn In,9,TCU não ligou na bateria,2025-03-17T00:00:00+00:00,139,1,TECSCI,8,Thiago,2,Substituição de componente
+127,180.0,2025-03-17T00:00:00+00:00,140,1,TECSCI,10,Valciscley,0225020108080,3,Teste de Comunicação,3,LED inoperante,2025-03-17T00:00:00+00:00,140,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+128,180.0,2025-03-17T00:00:00+00:00,141,1,TECSCI,10,Valciscley,0225020110526,1,Pré-testes,1,TCU com corrente baixa,2025-03-17T00:00:00+00:00,141,1,TECSCI,7,Joao,2,Substituição de componente
+129,180.0,2025-03-17T00:00:00+00:00,142,1,TECSCI,10,Valciscley,022502107601,3,Teste de Comunicação,5,TCU não comunica,2025-03-17T00:00:00+00:00,142,1,TECSCI,12,Mario,7,Reconfiguração da TCU e ajuste do número de série
+130,180.0,2025-03-17T00:00:00+00:00,144,1,TECSCI,10,Valciscley,0225020108011,4,Burn In,10,Comunicação serial intermitente,2025-03-17T00:00:00+00:00,144,1,TECSCI,7,Joao,2,Substituição de componente
+131,180.0,2025-03-18T00:00:00+00:00,145,1,TECSCI,10,Valciscley,0225020111820,4,Burn In,9,TCU não ligou na bateria,2025-03-18T00:00:00+00:00,145,1,TECSCI,8,Thiago,1,Não preenchido
+132,180.0,2025-03-18T00:00:00+00:00,146,1,TECSCI,9,Charles,0225020110373,4,Burn In,10,Comunicação serial intermitente,2025-03-18T00:00:00+00:00,146,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+133,180.0,2025-03-18T00:00:00+00:00,148,1,TECSCI,10,Valciscley,0225020110724,1,Pré-testes,19,TCU não temporizou,2025-03-18T00:00:00+00:00,148,1,TECSCI,7,Joao,3,Ressolda de componente
+134,180.0,2025-03-18T00:00:00+00:00,150,1,TECSCI,9,Charles,0225020110618,1,Pré-testes,11,TCU com corrente alta,2025-03-18T00:00:00+00:00,150,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+135,180.0,2025-03-18T00:00:00+00:00,151,1,TECSCI,9,Charles,0225020110359,1,Pré-testes,11,TCU com corrente alta,2025-03-18T00:00:00+00:00,151,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+136,180.0,2025-03-18T00:00:00+00:00,152,1,TECSCI,9,Charles,0225020111035,4,Burn In,10,Comunicação serial intermitente,2025-03-18T00:00:00+00:00,152,1,TECSCI,7,Joao,1,Não preenchido
+137,180.0,2025-03-18T00:00:00+00:00,153,1,TECSCI,9,Charles,0225020109599,4,Burn In,9,TCU não ligou na bateria,2025-03-18T00:00:00+00:00,153,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+138,180.0,2025-03-18T00:00:00+00:00,154,1,TECSCI,10,Valciscley,0225020109650,4,Burn In,7,LED invertido,2025-03-18T00:00:00+00:00,154,1,TECSCI,12,Mario,4,Reencaixe de componentes soltos
+139,180.0,2025-03-18T00:00:00+00:00,155,1,TECSCI,9,Charles,0225020111882,4,Burn In,10,Comunicação serial intermitente,2025-03-18T00:00:00+00:00,155,1,TECSCI,12,Mario,2,Substituição de componente
+140,180.0,2025-03-18T00:00:00+00:00,156,1,TECSCI,10,Valciscley,0225020106970,4,Burn In,10,Comunicação serial intermitente,2025-03-18T00:00:00+00:00,156,1,TECSCI,7,Joao,7,Reconfiguração da TCU e ajuste do número de série
+141,180.0,2025-03-19T00:00:00+00:00,157,1,TECSCI,9,Charles,0225020110724,4,Burn In,7,LED invertido,2025-03-19T00:00:00+00:00,157,1,TECSCI,7,Joao,2,Substituição de componente
+142,180.0,2025-03-19T00:00:00+00:00,158,1,TECSCI,9,Charles,0225020108080,3,Teste de Comunicação,4,Erro na Ponte H,2025-03-19T00:00:00+00:00,158,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+143,180.0,2025-03-19T00:00:00+00:00,159,1,TECSCI,10,Valciscley,0225020106901,4,Burn In,7,LED invertido,2025-03-19T00:00:00+00:00,159,1,TECSCI,12,Mario,4,Reencaixe de componentes soltos
+144,180.0,2025-03-19T00:00:00+00:00,160,1,TECSCI,12,Mario,0225020112940,1,Pré-testes,17,Componente faltando,2025-03-19T00:00:00+00:00,160,1,TECSCI,12,Mario,11,Recalibragem do inclinômetro
+145,180.0,2025-03-19T00:00:00+00:00,161,1,TECSCI,9,Charles,0225020111943,4,Burn In,8,TCU não movimentou,2025-03-19T00:00:00+00:00,161,1,TECSCI,14,Kathleyn,5,Reorganização e crimpagem de chicote
+146,180.0,2025-03-19T00:00:00+00:00,162,1,TECSCI,9,Charles,0225020112636,3,Teste de Comunicação,5,TCU não comunica,2025-03-19T00:00:00+00:00,162,1,TECSCI,8,Thiago,2,Substituição de componente
+147,180.0,2025-03-19T00:00:00+00:00,164,1,TECSCI,9,Charles,022502010540,4,Burn In,10,Comunicação serial intermitente,2025-03-19T00:00:00+00:00,164,1,TECSCI,7,Joao,1,Não preenchido
+148,180.0,2025-03-19T00:00:00+00:00,165,1,TECSCI,9,Charles,0225020112537,1,Pré-testes,19,TCU não temporizou,2025-03-19T00:00:00+00:00,165,1,TECSCI,7,Joao,2,Substituição de componente
+149,180.0,2025-03-19T00:00:00+00:00,167,1,TECSCI,9,Charles,0225020107199,4,Burn In,9,TCU não ligou na bateria,2025-03-19T00:00:00+00:00,167,1,TECSCI,8,Thiago,1,Não preenchido
+150,180.0,2025-03-19T00:00:00+00:00,168,1,TECSCI,9,Charles,022502011561,4,Burn In,8,TCU não movimentou,2025-03-19T00:00:00+00:00,168,1,TECSCI,8,Thiago,5,Reorganização e crimpagem de chicote
+151,180.0,2025-03-19T00:00:00+00:00,170,1,TECSCI,10,Valciscley,0225020107960,4,Burn In,10,Comunicação serial intermitente,2025-03-19T00:00:00+00:00,170,1,TECSCI,7,Joao,2,Substituição de componente
+152,180.0,2025-03-19T00:00:00+00:00,171,1,TECSCI,10,Valciscley,0225020111981,3,Teste de Comunicação,4,Erro na Ponte H,2025-03-19T00:00:00+00:00,171,1,TECSCI,7,Joao,2,Substituição de componente
+153,180.0,2025-03-19T00:00:00+00:00,172,1,TECSCI,9,Charles,0225020109704,4,Burn In,7,LED invertido,2025-03-19T00:00:00+00:00,172,1,TECSCI,7,Joao,2,Substituição de componente
+154,180.0,2025-03-19T00:00:00+00:00,173,1,TECSCI,9,Charles,0225020108233,4,Burn In,9,TCU não ligou na bateria,2025-03-19T00:00:00+00:00,173,1,TECSCI,12,Mario,4,Reencaixe de componentes soltos
+155,180.0,2025-03-19T00:00:00+00:00,175,1,TECSCI,10,Valciscley,0225020108400,4,Burn In,7,LED invertido,2025-03-19T00:00:00+00:00,175,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+156,180.0,2025-03-20T00:00:00+00:00,177,1,TECSCI,9,Charles,0225020111752,1,Pré-testes,11,TCU com corrente alta,2025-03-20T00:00:00+00:00,177,1,TECSCI,7,Joao,2,Substituição de componente
+157,180.0,2025-03-20T00:00:00+00:00,178,1,TECSCI,9,Charles,0225020112902,4,Burn In,9,TCU não ligou na bateria,2025-03-20T00:00:00+00:00,178,1,TECSCI,7,Joao,2,Substituição de componente
+158,180.0,2025-03-20T00:00:00+00:00,179,1,TECSCI,9,Charles,0225020107847,3,Teste de Comunicação,5,TCU não comunica,2025-03-20T00:00:00+00:00,179,1,TECSCI,12,Mario,2,Substituição de componente
+159,180.0,2025-03-20T00:00:00+00:00,180,1,TECSCI,10,Valciscley,0225020112803,3,Teste de Comunicação,4,Erro na Ponte H,2025-03-20T00:00:00+00:00,180,1,TECSCI,7,Joao,1,Não preenchido
+160,180.0,2025-03-20T00:00:00+00:00,182,1,TECSCI,10,Valciscley,0225020112797,4,Burn In,9,TCU não ligou na bateria,2025-03-20T00:00:00+00:00,182,1,TECSCI,7,Joao,1,Não preenchido
+161,180.0,2025-03-20T00:00:00+00:00,183,1,TECSCI,10,Valciscley,0225020109155,3,Teste de Comunicação,6,Erro no ADC,2025-03-20T00:00:00+00:00,183,1,TECSCI,7,Joao,1,Não preenchido
+162,180.0,2025-03-20T00:00:00+00:00,187,1,TECSCI,10,Valciscley,0225020112698,1,Pré-testes,11,TCU com corrente alta,2025-03-20T00:00:00+00:00,187,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+163,180.0,2025-03-20T00:00:00+00:00,188,1,TECSCI,10,Valciscley,0225020111721,2,Teste de Potência,22,Erro no Curto-Bateria,2025-03-20T00:00:00+00:00,188,1,TECSCI,8,Thiago,1,Não preenchido
+164,180.0,2025-03-20T00:00:00+00:00,189,1,TECSCI,10,Valciscley,0225020111721,1,Pré-testes,1,TCU com corrente baixa,2025-03-20T00:00:00+00:00,189,1,TECSCI,12,Mario,9,Regulagem do step up
+165,180.0,2025-03-20T00:00:00+00:00,190,1,TECSCI,10,Valciscley,0225020111721,3,Teste de Comunicação,4,Erro na Ponte H,2025-03-20T00:00:00+00:00,190,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+166,180.0,2025-03-20T00:00:00+00:00,191,1,TECSCI,9,Charles,0225020108981,4,Burn In,7,LED invertido,2025-03-20T00:00:00+00:00,191,1,TECSCI,7,Joao,2,Substituição de componente
+167,180.0,2025-03-20T00:00:00+00:00,194,1,TECSCI,9,Charles,0225020107106,3,Teste de Comunicação,5,TCU não comunica,2025-03-20T00:00:00+00:00,194,1,TECSCI,14,Kathleyn,5,Reorganização e crimpagem de chicote
+168,180.0,2025-03-20T00:00:00+00:00,195,1,TECSCI,9,Charles,0225020109568,3,Teste de Comunicação,4,Erro na Ponte H,2025-03-20T00:00:00+00:00,195,1,TECSCI,7,Joao,2,Substituição de componente
+169,180.0,2025-03-20T00:00:00+00:00,196,1,TECSCI,9,Charles,0225020109568,1,Pré-testes,1,TCU com corrente baixa,2025-03-20T00:00:00+00:00,196,1,TECSCI,7,Joao,2,Substituição de componente
+170,180.0,2025-03-21T00:00:00+00:00,197,1,TECSCI,9,Charles,0225020111943,4,Burn In,7,LED invertido,2025-03-21T00:00:00+00:00,197,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+171,180.0,2025-03-21T00:00:00+00:00,199,1,TECSCI,10,Valciscley,0225020111981,4,Burn In,10,Comunicação serial intermitente,2025-03-21T00:00:00+00:00,199,1,TECSCI,14,Kathleyn,5,Reorganização e crimpagem de chicote
+172,180.0,2025-03-21T00:00:00+00:00,200,1,TECSCI,9,Charles,0225020109568,4,Burn In,10,Comunicação serial intermitente,2025-03-21T00:00:00+00:00,200,1,TECSCI,7,Joao,1,Não preenchido
+173,180.0,2025-03-24T00:00:00+00:00,201,1,TECSCI,9,Charles,0225020107106,4,Burn In,8,TCU não movimentou,2025-03-24T00:00:00+00:00,201,1,TECSCI,13,Fabiana,5,Reorganização e crimpagem de chicote
+174,180.0,2025-03-24T00:00:00+00:00,202,1,TECSCI,10,Valciscley,0225020111493,4,Burn In,10,Comunicação serial intermitente,2025-03-24T00:00:00+00:00,202,1,TECSCI,17,Thiago Dias,7,Reconfiguração da TCU e ajuste do número de série
+175,180.0,2025-03-24T00:00:00+00:00,203,1,TECSCI,10,Valciscley,0225020112193,3,Teste de Comunicação,6,Erro no ADC,2025-03-24T00:00:00+00:00,203,1,TECSCI,7,Joao,1,Não preenchido
+176,180.0,2025-03-24T00:00:00+00:00,204,1,TECSCI,9,Charles,0225020111060,1,Pré-testes,1,TCU com corrente baixa,2025-03-24T00:00:00+00:00,204,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+177,180.0,2025-03-24T00:00:00+00:00,205,1,TECSCI,9,Charles,0225020113299,2,Teste de Potência,23,Erro na Carga da Bateria,2025-03-24T00:00:00+00:00,205,1,TECSCI,8,Thiago,2,Substituição de componente
+178,180.0,2025-03-24T00:00:00+00:00,206,1,TECSCI,10,Valciscley,0225020109117,3,Teste de Comunicação,5,TCU não comunica,2025-03-24T00:00:00+00:00,206,1,TECSCI,7,Joao,7,Reconfiguração da TCU e ajuste do número de série
+179,180.0,2025-03-24T00:00:00+00:00,207,1,TECSCI,10,Valciscley,0225020113305,4,Burn In,9,TCU não ligou na bateria,2025-03-24T00:00:00+00:00,207,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+180,180.0,2025-03-24T00:00:00+00:00,208,1,TECSCI,10,Valciscley,0225020112254,1,Pré-testes,11,TCU com corrente alta,2025-03-24T00:00:00+00:00,208,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+181,180.0,2025-03-24T00:00:00+00:00,209,1,TECSCI,10,Valciscley,0225020113466,3,Teste de Comunicação,15,Erro na RAK,2025-03-24T00:00:00+00:00,209,1,TECSCI,11,Lucas Villani,6,Regravação do firmware
+182,180.0,2025-03-24T00:00:00+00:00,211,1,TECSCI,9,Charles,0225020113411,1,Pré-testes,11,TCU com corrente alta,2025-03-24T00:00:00+00:00,211,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+183,180.0,2025-03-24T00:00:00+00:00,212,1,TECSCI,9,Charles,0225020108196,1,Pré-testes,1,TCU com corrente baixa,2025-03-24T00:00:00+00:00,212,1,TECSCI,7,Joao,2,Substituição de componente
+184,180.0,2025-03-25T00:00:00+00:00,213,1,TECSCI,9,Charles,0225020109179,1,Pré-testes,13,Chicote solto ou invertido,2025-03-25T00:00:00+00:00,213,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+185,180.0,2025-03-25T00:00:00+00:00,214,1,TECSCI,9,Charles,0225020112919,4,Burn In,9,TCU não ligou na bateria,2025-03-25T00:00:00+00:00,214,1,TECSCI,8,Thiago,2,Substituição de componente
+186,180.0,2025-03-25T00:00:00+00:00,215,1,TECSCI,9,Charles,0225020108103,4,Burn In,9,TCU não ligou na bateria,2025-03-25T00:00:00+00:00,215,1,TECSCI,8,Thiago,2,Substituição de componente
+187,180.0,2025-03-25T00:00:00+00:00,216,1,TECSCI,9,Charles,0225020112285,3,Teste de Comunicação,5,TCU não comunica,2025-03-25T00:00:00+00:00,216,1,TECSCI,8,Thiago,2,Substituição de componente
+188,180.0,2025-03-25T00:00:00+00:00,217,1,TECSCI,7,Joao,0225020112070,1,Pré-testes,17,Componente faltando,2025-03-25T00:00:00+00:00,217,1,TECSCI,7,Joao,11,Recalibragem do inclinômetro
+189,180.0,2025-03-25T00:00:00+00:00,218,1,TECSCI,9,Charles,0225020113367,4,Burn In,8,TCU não movimentou,2025-03-25T00:00:00+00:00,218,1,TECSCI,11,Lucas Villani,2,Substituição de componente
+190,180.0,2025-03-25T00:00:00+00:00,219,1,TECSCI,9,Charles,0225020112049,1,Pré-testes,18,Componene solto,2025-03-25T00:00:00+00:00,219,1,TECSCI,8,Thiago,2,Substituição de componente
+191,180.0,2025-03-25T00:00:00+00:00,220,1,TECSCI,9,Charles,0225020112049,2,Teste de Potência,22,Erro no Curto-Bateria,2025-03-25T00:00:00+00:00,220,1,TECSCI,7,Joao,2,Substituição de componente
+192,180.0,2025-03-25T00:00:00+00:00,221,1,TECSCI,10,Valciscley,0225020112186,4,Burn In,9,TCU não ligou na bateria,2025-03-25T00:00:00+00:00,221,1,TECSCI,7,Joao,2,Substituição de componente
+193,180.0,2025-03-25T00:00:00+00:00,222,1,TECSCI,9,Charles,0225020112179,3,Teste de Comunicação,5,TCU não comunica,2025-03-25T00:00:00+00:00,222,1,TECSCI,11,Lucas Villani,7,Reconfiguração da TCU e ajuste do número de série
+194,180.0,2025-03-25T00:00:00+00:00,223,1,TECSCI,9,Charles,0225020106895,4,Burn In,7,LED invertido,2025-03-25T00:00:00+00:00,223,1,TECSCI,7,Joao,2,Substituição de componente
+195,180.0,2025-03-25T00:00:00+00:00,224,1,TECSCI,10,Valciscley,0225020112209,4,Burn In,8,TCU não movimentou,2025-03-25T00:00:00+00:00,224,1,TECSCI,11,Lucas Villani,6,Regravação do firmware
+196,180.0,2025-03-25T00:00:00+00:00,225,1,TECSCI,9,Charles,0225020112209,3,Teste de Comunicação,5,TCU não comunica,2025-03-25T00:00:00+00:00,225,1,TECSCI,8,Thiago,2,Substituição de componente
+197,180.0,2025-03-26T00:00:00+00:00,228,1,TECSCI,9,Charles,0225020113022,3,Teste de Comunicação,5,TCU não comunica,2025-03-26T00:00:00+00:00,228,1,TECSCI,8,Thiago,2,Substituição de componente
+198,180.0,2025-03-26T00:00:00+00:00,229,1,TECSCI,10,Valciscley,0225020114012,3,Teste de Comunicação,5,TCU não comunica,2025-03-26T00:00:00+00:00,229,1,TECSCI,8,Thiago,2,Substituição de componente
+199,180.0,2025-03-26T00:00:00+00:00,230,1,TECSCI,9,Charles,0225020114135,1,Pré-testes,11,TCU com corrente alta,2025-03-26T00:00:00+00:00,230,1,TECSCI,8,Thiago,4,Reencaixe de componentes soltos
+200,180.0,2025-03-26T00:00:00+00:00,232,1,TECSCI,9,Charles,0225020112957,3,Teste de Comunicação,5,TCU não comunica,2025-03-26T00:00:00+00:00,232,1,TECSCI,8,Thiago,2,Substituição de componente
+201,180.0,2025-03-26T00:00:00+00:00,233,1,TECSCI,9,Charles,0225020113800,4,Burn In,9,TCU não ligou na bateria,2025-03-26T00:00:00+00:00,233,1,TECSCI,11,Lucas Villani,4,Reencaixe de componentes soltos
+202,180.0,2025-03-26T00:00:00+00:00,234,1,TECSCI,9,Charles,0225020113367,4,Burn In,8,TCU não movimentou,2025-03-26T00:00:00+00:00,234,1,TECSCI,11,Lucas Villani,12,Inclusão de componente faltando
+203,180.0,2025-02-26T00:00:00+00:00,235,1,TECSCI,9,Charles,225020113060,1,Pré-testes,1,TCU com corrente baixa,2025-02-26T00:00:00+00:00,235,1,TECSCI,8,Thiago,3,Ressolda de componente
+204,180.0,2025-03-27T00:00:00+00:00,236,1,TECSCI,10,Valciscley,0225020114159,1,Pré-testes,13,Chicote solto ou invertido,2025-03-27T00:00:00+00:00,236,1,TECSCI,7,Joao,4,Reencaixe de componentes soltos
+205,180.0,2025-03-27T00:00:00+00:00,237,1,TECSCI,10,Valciscley,225020113893,3,Teste de Comunicação,5,TCU não comunica,2025-03-27T00:00:00+00:00,237,1,TECSCI,11,Lucas Villani,5,Reorganização e crimpagem de chicote
+206,180.0,2025-03-27T00:00:00+00:00,238,1,TECSCI,9,Charles,0225020113033,3,Teste de Comunicação,5,TCU não comunica,2025-03-27T00:00:00+00:00,238,1,TECSCI,8,Thiago,2,Substituição de componente
+207,180.0,2025-03-27T00:00:00+00:00,239,1,TECSCI,10,Valciscley,0225020113961,1,Pré-testes,11,TCU com corrente alta,2025-03-27T00:00:00+00:00,239,1,TECSCI,8,Thiago,1,Não preenchido
+208,180.0,2025-03-27T00:00:00+00:00,240,1,TECSCI,9,Charles,0225020113831,4,Burn In,9,TCU não ligou na bateria,2025-03-27T00:00:00+00:00,240,1,TECSCI,11,Lucas Villani,1,Não preenchido
+209,180.0,2025-03-26T00:00:00+00:00,241,1,TECSCI,9,Charles,225020113839,1,Pré-testes,19,TCU não temporizou,2025-03-26T00:00:00+00:00,241,1,TECSCI,7,Joao,3,Ressolda de componente
+210,180.0,2025-03-27T00:00:00+00:00,242,1,TECSCI,10,Valciscley,0225020113787,4,Burn In,9,TCU não ligou na bateria,2025-03-27T00:00:00+00:00,242,1,TECSCI,11,Lucas Villani,1,Não preenchido
+211,180.0,2025-03-27T00:00:00+00:00,243,1,TECSCI,10,Valciscley,0225020114579,3,Teste de Comunicação,5,TCU não comunica,2025-03-27T00:00:00+00:00,243,1,TECSCI,11,Lucas Villani,1,Não preenchido
+212,180.0,2025-03-26T00:00:00+00:00,244,1,TECSCI,9,Charles,0225020114357,3,Teste de Comunicação,21,Erro no RTC,2025-03-26T00:00:00+00:00,244,1,TECSCI,8,Thiago,2,Substituição de componente
+213,180.0,2025-03-27T00:00:00+00:00,245,1,TECSCI,9,Charles,02250114173,4,Burn In,9,TCU não ligou na bateria,2025-03-27T00:00:00+00:00,245,1,TECSCI,11,Lucas Villani,1,Não preenchido
+214,180.0,2025-03-27T00:00:00+00:00,246,1,TECSCI,9,Charles,0225020113930,3,Teste de Comunicação,5,TCU não comunica,2025-03-27T00:00:00+00:00,246,1,TECSCI,8,Thiago,7,Reconfiguração da TCU e ajuste do número de série
+215,180.0,2025-03-27T00:00:00+00:00,247,1,TECSCI,10,Valciscley,0225020113862,3,Teste de Comunicação,5,TCU não comunica,2025-03-27T00:00:00+00:00,247,1,TECSCI,8,Thiago,2,Substituição de componente
+216,180.0,2025-03-27T00:00:00+00:00,248,1,TECSCI,9,Charles,0225020114227,4,Burn In,8,TCU não movimentou,2025-03-27T00:00:00+00:00,248,1,TECSCI,11,Lucas Villani,10,Limpeza da placa
