@@ -192,8 +192,11 @@ class Server:
         return self._post_request("etapa", data)
     
     def get_erro(self):
-        return self._get_request("erro")
+        erros = [{"nome": erro["nome"].rstrip(), "etapa": erro["etapa"]["nome"],  "id": erro["id"]} 
+                      for erro in requests.get(self.server_url + "/erro", headers={'Authorization': f'Bearer {self.token}'}).json()]
+        return erros
     
+
     def post_erro(self, etapa_id, nome):
         data = {
             "etapa_id": etapa_id,
