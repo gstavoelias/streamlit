@@ -12,7 +12,7 @@ st.title("Adicionar RFT/Manutenção")
 
 # Inicializa servidor
 if "server" not in st.session_state:
-    st.session_state.server = Server("http://127.0.0.1:8087/api/v1.0/")
+    st.session_state.server = Server("http://10.0.0.28:8087/api/v1.0/")
 server = st.session_state.server
 
 # Utilidade para exibir mensagens
