@@ -56,7 +56,8 @@ manutencoes_map = {
 # RFT
 with st.expander("RFT"):
     erro_selecionado = st.selectbox("Erro", sorted(erro_map.keys()), help="Não encontrou o erro? Adicione abaixo.")
-    serial_number = st.text_input("Número de série da TCU")
+    descricao = st.text_input("Descrição", max_chars=150)
+    serial_number = st.text_input("Número de série da TCU", max_chars=13)
     operador_selecionado = st.selectbox("Operador", sorted(operador_map.keys()))
     data_selecionada_rft = st.date_input("Data", format="DD/MM/YYYY", key="data_rft")
 
@@ -65,6 +66,7 @@ with st.expander("RFT"):
             serial_number,
             operador_map[operador_selecionado],
             erro_map[erro_selecionado],
+            descricao,
             data_selecionada_rft.isoformat()
         )
         show_response(response)
@@ -82,6 +84,7 @@ with st.expander("MANUTENÇÃO"):
     rft_selecionado = st.selectbox("RFT", sorted(rft_map.keys()))
     tecnico_selecionado = st.selectbox("Técnico", sorted(operador_map.keys()))
     solucao_selecionada = st.selectbox("Solução", sorted(solucao_map.keys()))
+    descricao_sol = st.text_input("Descrição da Solução:", max_chars=150)
     data_selecionada_man = st.date_input("Data", format="DD/MM/YYYY", key="data_manutencao")
     duracao = st.text_input("Duração (s)")
 
@@ -91,6 +94,7 @@ with st.expander("MANUTENÇÃO"):
                 operador_map[tecnico_selecionado],
                 rft_map[rft_selecionado],
                 solucao_map[solucao_selecionada],
+                descricao,
                 data_selecionada_man.isoformat(),
                 float(duracao)
             )
