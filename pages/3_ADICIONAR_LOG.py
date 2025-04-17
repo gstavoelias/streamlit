@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from server import Server
 
 st.set_page_config(page_title="Adicionar RFT/Manutenção", page_icon="icon.ico", layout="wide")
 
@@ -9,11 +8,13 @@ with st.sidebar:
     st.image("logo-dark.png")
 
 st.title("Adicionar RFT/Manutenção")
+if "authenticated" not in st.session_state or not st.session_state.authenticated:
+    st.warning("Você precisa estar logado para acessar esta página.")
+    st.stop()
 
 # Inicializa servidor
-if "server" not in st.session_state:
-    st.session_state.server = Server("http://127.0.0.1:8087/api/v1.0/")
-server = st.session_state.server
+api = st.session_state.api
+
 
 # Utilidade para exibir mensagens
 def show_response(response):
@@ -29,11 +30,13 @@ def load_data_once(key, func):
     return st.session_state[key]
 
 # Dados carregados apenas uma vez
-erros = load_data_once("erros", server.get_erro)
-operadores = load_data_once("operadores", server.get_operators)
-etapas = load_data_once("etapas", server.get_etapa)
-rfts = load_data_once("rfts", server.get_rft)
-solucoes = load_data_once("solucoes", server.get_solucao)
+erros = load_data_once("erros", api.get_erro)
+operadores = load_data_once("operadores", api.get_operators)
+etapas = load_data_once("etapas", api.get_etapa)
+rfts = load_data_once("rfts", api.get_rft)
+solucoes = load_data_once("solucoes", api.get_solucao)
+materiais = load_data_once("materiais", api.get_materials)
+manutencoes = load_data_once("manutencoes", api.get_manutencao)
 
 # Mapas
 erro_map = {f"{e['etapa']} - {e['nome']}": e["id"] for e in erros}
@@ -44,6 +47,8 @@ rft_map = {
     for r in rfts
 }
 solucao_map = {s["nome"]: s["id"] for s in solucoes}
+materials_map = {f"{m["id"]} - {m["nome"]}": m["id"] for m in materiais}
+manutencoes_map = {f"{m["rft"]["controladora_id"]} - {m["solucao"]["nome"]} - {m["horario"].split('T')[0]}": m["id"] for m in manutencoes}
 
 # RFT
 with st.expander("RFT"):
@@ -53,7 +58,7 @@ with st.expander("RFT"):
     data_selecionada_rft = st.date_input("Data", format="DD/MM/YYYY", key="data_rft")
 
     if st.button("ENVIAR", type="primary", key="post_rft"):
-        response = server.post_rft(
+        response = api.post_rft(
             serial_number,
             operador_map[operador_selecionado],
             erro_map[erro_selecionado],
@@ -66,7 +71,7 @@ with st.expander("ERRO"):
     etapa_selecionada = st.selectbox("Etapa", sorted(etapas_map.keys()))
     erro_nome = st.text_input("Nome do Erro")
     if st.button("ENVIAR", type="primary", key="post_erro"):
-        response = server.post_erro(etapas_map[etapa_selecionada], erro_nome)
+        response = api.post_erro(etapas_map[etapa_selecionada], erro_nome)
         show_response(response)
 
 # MANUTENÇÃO
@@ -79,7 +84,7 @@ with st.expander("MANUTENÇÃO"):
 
     if st.button("ENVIAR", type="primary", key="post_manutencao"):
         try:
-            response = server.post_manutencao(
+            response = api.post_manutencao(
                 operador_map[tecnico_selecionado],
                 rft_map[rft_selecionado],
                 solucao_map[solucao_selecionada],
@@ -94,5 +99,24 @@ with st.expander("MANUTENÇÃO"):
 with st.expander("SOLUÇÃO"):
     sol_nome = st.text_input("Nome da Solução")
     if st.button("ENVIAR", type="primary", key="post_solucao"):
-        response = server.post_solucao(sol_nome)
+        response = api.post_solucao(sol_nome)
         show_response(response)
+
+
+with st.expander("MATERIAIS"):
+    id = st.text_input("Código")
+    nome  = st.text_input("Nome")
+    if st.button("ENVIAR", type="primary", key="post_material"):
+        response = api.post_material(id, nome)
+        show_response(response)
+
+with st.expander("PERDAS"):
+    material_selecionado = st.selectbox("Material", options=sorted(materials_map.keys()))
+    manutencao_selecionada = st.selectbox("Manutenção", options=sorted(manutencoes_map.keys()))
+    quantidade = st.text_input("Quantidade")
+    if st.button("ENVIAR", type="primary", key="post_perdas"):
+        try:
+            response = api.post_perdas(materials_map[material_selecionado], manutencoes_map[manutencao_selecionada], int(quantidade))
+            show_response(response)
+        except ValueError:
+            st.warning("A quantidade precisa ser um número válido.")

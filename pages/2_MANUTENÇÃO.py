@@ -9,10 +9,13 @@ with st.sidebar:
 
 
 st.title("Relatório de Falha das TCUs TECSCI")
-# server = Server("http://127.0.0.1:8087/api/v1.0/")
-# response = server.get_manutencao()
-# df = pd.json_normalize(response)
-df = pd.read_csv("manutencao.csv")
+if "authenticated" not in st.session_state or not st.session_state.authenticated:
+    st.warning("Você precisa estar logado para acessar esta página.")
+    st.stop()
+api = st.session_state.api
+response = api.get_manutencao()
+df = pd.json_normalize(response)
+# df = pd.read_csv("manutencao.csv")
 
 st.header("Manutenções por dia")
 st.text(f"TOTAL: {len(df)}")
@@ -62,3 +65,6 @@ por_operador.columns = ["Operador", "Quantidade"]
 chart = px.bar(por_operador, x="Operador", y="Quantidade", color_discrete_sequence=px.colors.sequential.Viridis_r[3:])
 st.text(f"TOTAL: {len(por_operador)}")
 st.plotly_chart(chart, use_container_width=True)
+
+with st.expander("Base de Dados", expanded=False):
+    st.dataframe(df, use_container_width=True, hide_index=True)

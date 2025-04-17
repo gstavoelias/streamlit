@@ -9,12 +9,14 @@ with st.sidebar:
 
 
 st.title("Relatório de Falhas das TCUs TECSCI")
+if "authenticated" not in st.session_state or not st.session_state.authenticated:
+    st.warning("Você precisa estar logado para acessar esta página.")
+    st.stop()
 st.header("Falhas por dia")
 
-# server = Server("http://127.0.0.1:8087/api/v1.0/")
-# response = server.get_rft()
-# df = pd.json_normalize(response)
-df = pd.read_csv("rft.csv")
+api = st.session_state.api
+response = api.get_rft()
+df = pd.json_normalize(response)
 
 df["horario"] = pd.to_datetime(df["horario"])
 data = df.groupby(df["horario"].dt.date).size()

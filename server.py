@@ -1,46 +1,48 @@
 import requests
 import pandas as pd
+from typing import Any, Dict, Optional
+from dataclasses import dataclass
 
+@dataclass
+class User:
+    username: str
+    password: str
 
 class Server:
-    def __init__(self, server_url="https://ppc.tecsci.com.br/api/v1.0"):
+    def __init__(self, server_url: str = "https://ppc.tecsci.com.br/api/v1.0") -> None:
         self.server_url = server_url
         self.token = None
         self.response = None
         self.excecao = None
-        self.login()
 
 
 
-    def login(self):
+    def login(self, user: User) -> bool:
         try:
             response = requests.post(
                 self.server_url + "/auth/login",
                 headers={'Content-Type': 'application/json'}, 
-                json={'username': 'gustavo.elias', 'password': '12345678'}
+                json={'username': user.username, 'password': user.password}
             )
-
-            # Armazena status e texto da resposta para debugging
             self.response = response.text
-
             if response.status_code != 200:
                 self.excecao = f"Erro {response.status_code} - {response.reason}"
-                return
-            
+                return False
             self.token = response.json().get("access_token")
-
+            return True
         except Exception as e:
             self.excecao = e.args
+            return False
     
     def _get_request(self, endpoint, params=None):
-        return requests.get(self.server_url + endpoint, 
+        return requests.get(self.server_url + "/" + endpoint, 
                             headers= {"Authorization": f"Bearer {self.token}"},
                             params = params
                             ).json()
     
 
     def _post_request(self, endpoint, data=None):
-        return requests.post(self.server_url + endpoint, 
+        return requests.post(self.server_url + "/" + endpoint, 
                             json = data, 
                             headers= {"Authorization": f"Bearer {self.token}", "Content-Type": "application/json"})
 
@@ -208,11 +210,12 @@ class Server:
     def get_rft(self):
         return self._get_request("rft")
     
-    def post_rft(self, controladora_id, operador_id, error_id, horario):
+    def post_rft(self, controladora_id, operador_id, error_id, descricao, horario):
         data = {
             "controladora_id": controladora_id,
             "operador_id": operador_id,
             "erro_id": error_id,
+            "descricao": descricao,
             "horario": horario
         }
         return self._post_request("rft", data)
@@ -241,11 +244,12 @@ class Server:
     def get_manutencao(self):
         return self._get_request("manutencao")
 
-    def post_manutencao(self, operador_id, rft_id, solucao_id, horario, duracao):
+    def post_manutencao(self, operador_id, rft_id, solucao_id, horario, descricao, duracao):
         data = {
             "operador_id": operador_id,
             "rft_id": rft_id,
             "solucao_id": solucao_id,
+            "descricao": descricao,
             "horario": horario,
             "duracao": duracao
         }
