@@ -38,7 +38,6 @@ solucoes = load_data_once("solucoes", api.get_solucao)
 materiais = load_data_once("materiais", api.get_materials)
 manutencoes = load_data_once("manutencoes", api.get_manutencao)
 
-# Mapas
 erro_map = {f"{e['etapa']} - {e['nome']}": e["id"] for e in erros}
 operador_map = {o["nome"]: o["id"] for o in operadores}
 etapas_map = {e["nome"]: e["id"] for e in etapas}
@@ -47,9 +46,13 @@ rft_map = {
     for r in rfts
 }
 solucao_map = {s["nome"]: s["id"] for s in solucoes}
-materials_map = {f"{m["id"]} - {m["nome"]}": m["id"] for m in materiais}
-manutencoes_map = {f"{m["rft"]["controladora_id"]} - {m["solucao"]["nome"]} - {m["horario"].split('T')[0]}": m["id"] for m in manutencoes}
-
+materials_map = {
+    f"{m['id']} - {m['nome']}": m["id"] for m in materiais
+}
+manutencoes_map = {
+    f"{m['rft']['controladora_id']} - {m['solucao']['nome']} - {m['horario'].split('T')[0]}": m["id"]
+    for m in manutencoes
+}
 # RFT
 with st.expander("RFT"):
     erro_selecionado = st.selectbox("Erro", sorted(erro_map.keys()), help="Não encontrou o erro? Adicione abaixo.")
