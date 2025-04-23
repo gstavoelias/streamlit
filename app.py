@@ -79,7 +79,7 @@ else:
     elif df is not None and not df.empty:
         st.subheader("Testes realizados por dia")
         data = df.groupby(df["horario"].dt.date).size()
-        bar_chart = px.bar(data, x=data.index, y=data.values)
+        bar_chart = px.bar(data, x=data.index, y=data.values, color_discrete_sequence=px.colors.sequential.Blues_r[1:])
         bar_chart.update_traces(showlegend=False)
         bar_chart.update_layout(xaxis=dict(tickvals=list(data.index)))
         st.plotly_chart(bar_chart, use_container_width=True)
@@ -88,7 +88,7 @@ else:
         st.subheader("Distribuição por Operador")
         operator_counts = df["operador_id.nome"].value_counts().reset_index()
         operator_counts.columns = ["Operador", "Quantidade"]
-        pie_chart = px.pie(operator_counts, names="Operador", values="Quantidade")
+        pie_chart = px.pie(operator_counts, names="Operador", values="Quantidade", color_discrete_sequence=px.colors.sequential.Blues_r[1:])
         st.plotly_chart(pie_chart, use_container_width=True)
 
         with st.expander(f"BASE DE DADOS - {df.shape[0]} registros"):
