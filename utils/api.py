@@ -1,6 +1,5 @@
 import requests
 import pandas as pd
-from typing import Any, Dict, Optional
 from dataclasses import dataclass
 
 @dataclass
@@ -244,7 +243,7 @@ class Server:
     def get_manutencao(self):
         return self._get_request("manutencao")
 
-    def post_manutencao(self, operador_id, rft_id, solucao_id, horario, descricao, duracao):
+    def post_manutencao(self, operador_id, rft_id, solucao_id, descricao, horario, duracao):
         data = {
             "operador_id": operador_id,
             "rft_id": rft_id,

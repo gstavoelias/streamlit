@@ -1,13 +1,13 @@
 import streamlit as st
 import plotly.express as px
 from datetime import datetime, timedelta
-from server import Server, User
+from utils import Server, User
 
-st.set_page_config(page_title="Dashboard TECSCI", page_icon="icon.ico", layout="wide")
+st.set_page_config(page_title="Dashboard TECSCI", page_icon="assets/icon.ico", layout="wide")
 
 # Sidebar com logo
 with st.sidebar:
-    st.image("logo-dark.png")
+    st.image("assets/logo-dark.png")
 
 # Estado inicial
 if "authenticated" not in st.session_state:

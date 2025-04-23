@@ -1,22 +1,17 @@
 import streamlit as st 
-from server import Server
 import pandas as pd
 import plotly.express as px
-
-st.set_page_config(page_title="Dashboard TECSCI", page_icon="icon.ico", layout="wide")
-with st.sidebar:
-    st.image("logo-dark.png")
+from utils import render_header
 
 
-st.title("Relatório de Falha das TCUs TECSCI")
-if "authenticated" not in st.session_state or not st.session_state.authenticated:
-    st.warning("Você precisa estar logado para acessar esta página.")
-    st.stop()
+render_header("Análise de Manutenções")
+
+# LOAD DATA
 api = st.session_state.api
 response = api.get_manutencao()
 df = pd.json_normalize(response)
-# df = pd.read_csv("manutencao.csv")
 
+# ANALISE POR DIA - BARRA
 st.header("Manutenções por dia")
 st.text(f"TOTAL: {len(df)}")
 df["horario"] = pd.to_datetime(df["horario"])
@@ -27,11 +22,9 @@ bar_chart.update_layout(xaxis=dict(tickvals=list(data.index)))
 st.plotly_chart(bar_chart, use_container_width=True, theme="streamlit")
 
 
+# SOLUCAO POR ERRO - PIZZA
 st.header("Soluções por Erro:")
-# Criar coluna combinando etapa + erro
 df["etapa_erro"] = df["rft.erro_id.etapa.nome"] + " – " + df["rft.erro_id.nome"]
-
-# Listar opções únicas para o menu
 opcoes = df["etapa_erro"].dropna().unique().tolist()
 opcoes.sort()
 opcoes.insert(0, "TODOS")
@@ -41,24 +34,19 @@ selecionado = st.selectbox("Selecione o Tipo de Falha", opcoes)
 if selecionado == "TODOS":
     df_filtrado = df
 else:
-    # Separar etapa e erro a partir do valor selecionado
     etapa_selecionada, falha_selecionada = selecionado.split(" – ", 1)
-
-    # Filtrar o DataFrame com base em etapa e erro
     df_filtrado = df[
         (df["rft.erro_id.etapa.nome"] == etapa_selecionada) &
         (df["rft.erro_id.nome"] == falha_selecionada)
     ]
-
-# Agrupar soluções
 solucoes = df_filtrado["solucao.nome"].value_counts().reset_index()
 solucoes.columns = ["Solução", "Quantidade"]
-
-# Título e gráfico
 grafico_solucao = px.pie(solucoes, names="Solução", values="Quantidade", color_discrete_sequence=px.colors.sequential.Viridis_r[3:])
 st.text(f"TOTAL: {len(df_filtrado)}")
 st.plotly_chart(grafico_solucao, use_container_width=True)
 
+
+# POR OPERADOR - BARRA
 st.header("Manutenções por Operador")
 por_operador = df["operador_id.nome"].value_counts().reset_index()
 por_operador.columns = ["Operador", "Quantidade"]
@@ -66,5 +54,7 @@ chart = px.bar(por_operador, x="Operador", y="Quantidade", color_discrete_sequen
 st.text(f"TOTAL: {len(por_operador)}")
 st.plotly_chart(chart, use_container_width=True)
 
+
+# DATAFRAME
 with st.expander("Base de Dados", expanded=False):
     st.dataframe(df, use_container_width=True, hide_index=True)
