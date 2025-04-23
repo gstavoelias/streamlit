@@ -5,8 +5,7 @@ from utils import User
 
 def render_header(page_title: str, is_main_page: bool = False) -> None:
     st.set_page_config(page_title=page_title, page_icon="assets/icon.ico", layout="wide")
-    with st.sidebar:
-        st.image("assets/logo-dark.png")
+    st.logo("assets/logo-dark.png")
     st.title(page_title)
 
     if is_main_page:

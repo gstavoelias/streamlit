@@ -39,22 +39,24 @@ def get_date_filter(period):
 
 # Sidebar
 with st.sidebar:
-    test_type = st.selectbox("Selecione o tipo de teste", ["", "Burn In", "Teste de Comunicação", "Teste de Potência"])
+    test_type = st.selectbox("Selecione o tipo de teste", ["Burn In", "Teste de Comunicação", "Teste de Potência"],
+                            index=None, placeholder="Selecione o tipo de teste",
+                            label_visibility="collapsed")
     st.session_state.selected_test_type = test_type
 
     st.session_state.selected_period = st.selectbox(
-        "Selecione o intervalo de tempo", 
-        ["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"],
-        index=["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"].index(st.session_state.selected_period)
+        label="Selecione o intervalo de tempo", label_visibility="collapsed",
+        options=["ÚLTIMA SEMANA", "SEMANA", "MÊS", "SEMESTRE", "ANO", "TOTAL"],
+        index=None, placeholder="Selecione o intervalo de tempo",
     )
-
     empresa_selecionada = st.selectbox(
-        "Selecione a empresa", 
-        ["TODAS", "TECSCI", "Enterplak", "Infinity"]
+        label="Selecione a empresa", label_visibility="collapsed", 
+        options=["TODAS", "TECSCI", "Enterplak", "Infinity"],
+        index=None, placeholder="Selecione a empresa"
     )
 
 # Conteúdo
-if not st.session_state.selected_test_type:
+if not st.session_state.selected_test_type or not st.session_state.selected_period:
     st.info("Selecione um tipo de teste na barra lateral para começar.")
 else:
     st.title(f"Dashboard - {st.session_state.selected_test_type}")
