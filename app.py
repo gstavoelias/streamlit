@@ -101,7 +101,7 @@ else:
             ""
         )).tolist()
         bar_chart = px.bar(data, x=data.index, y=data.values, text=labels, color_discrete_sequence=px.colors.sequential.Blues_r[1:])
-        bar_chart.update_traces(showlegend=False)
+        bar_chart.update_traces(showlegend=False, textposition="outside")
         bar_chart.update_layout(xaxis=dict(tickvals=list(data.index)))
         st.text(f"TOTAL: {len(df)}")
         st.plotly_chart(bar_chart, use_container_width=True)
