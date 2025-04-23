@@ -2,6 +2,7 @@ import streamlit as st
 import plotly.express as px
 from datetime import datetime, timedelta
 from utils import Server, render_header
+import pandas as pd
 
 if "api" not in st.session_state:
     st.session_state.api = Server()
@@ -14,6 +15,15 @@ if "selected_test_type" not in st.session_state:
 if "selected_period" not in st.session_state:
     st.session_state.selected_period = "SEMANA"
 
+@st.cache_data(show_spinner=False)
+def fetch_data(tipo: str, filtro: str):
+    if tipo == "Burn In":
+        return api.get_burnin_data(filtro)
+    elif tipo == "Teste de Comunicação":
+        return api.get_communication_data(filtro)
+    elif tipo == "Teste de Potência":
+        return api.get_power_data(filtro)
+    
 # Função de filtro de data
 def get_date_filter(period):
     hoje = datetime.today()
@@ -64,12 +74,7 @@ else:
     filtro = get_date_filter(st.session_state.selected_period)
     df = None
 
-    if st.session_state.selected_test_type == "Burn In":
-        df = api.get_burnin_data(filtro)
-    elif st.session_state.selected_test_type == "Teste de Comunicação":
-        df = api.get_communication_data(filtro)
-    elif st.session_state.selected_test_type == "Teste de Potência":
-        df = api.get_power_data(filtro)
+    df = fetch_data(st.session_state.selected_test_type, filtro)
 
     if empresa_selecionada != "TODAS" and df is not None:
         df = df[df["operador_id.empresa.nome"] == empresa_selecionada]
@@ -78,12 +83,35 @@ else:
         st.error(f"Houve um erro: {api.excecao}")
     elif df is not None and not df.empty:
         st.subheader("Testes realizados por dia")
-        data = df.groupby(df["horario"].dt.date).size()
-        bar_chart = px.bar(data, x=data.index, y=data.values, color_discrete_sequence=px.colors.sequential.Blues_r[1:])
+        agrupamento = st.radio("Tipo de agrupamento", options=["Dia", "Semana", "Mês"], horizontal=True)
+        df["horario"] = pd.to_datetime(df["horario"])
+        if agrupamento == "Dia":
+            data = df.groupby(df["horario"].dt.date).size()
+        elif agrupamento == "Semana":
+            data = df.groupby(df["horario"].dt.to_period("W")).size()
+        elif agrupamento == "Mês":
+            data = df.groupby(df["horario"].dt.to_period("M")).size()
+        data.index = data.index.astype(str)
+        percentual = round(data.pct_change() * 100, 2)
+        labels = percentual.map(lambda p: (
+            "" if agrupamento == "Dia" else
+            f"{p:.1f}% 🟢" if p > 0 else
+            f"{p:.1f}% 🔴" if p < 0 else
+            f"{p:.1f}% ⚪" if p == 0 else
+            ""
+        )).tolist()
+        bar_chart = px.bar(data, x=data.index, y=data.values, text=labels, color_discrete_sequence=px.colors.sequential.Blues_r[1:])
         bar_chart.update_traces(showlegend=False)
         bar_chart.update_layout(xaxis=dict(tickvals=list(data.index)))
-        st.plotly_chart(bar_chart, use_container_width=True)
         st.text(f"TOTAL: {len(df)}")
+        st.plotly_chart(bar_chart, use_container_width=True)
+        with st.expander("📊 Estatísticas", expanded=False):
+            st.markdown(f"- **Total de TCUs:** `{int(data.sum())}`")
+            st.markdown(f"- **Média por {agrupamento.lower()}:** `{data.mean():.2f}`")
+            st.markdown(f"- **Mediana:** `{data.median():.2f}`")
+            st.markdown(f"- **Desvio padrão:** `{data.std():.2f}`")
+            st.markdown(f"- **Máximo:** `{data.max()} ({data.idxmax()})`")
+            st.markdown(f"- **Mínimo:** `{data.min()} ({data.idxmin()})`")
 
         st.subheader("Distribuição por Operador")
         operator_counts = df["operador_id.nome"].value_counts().reset_index()
