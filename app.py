@@ -74,10 +74,16 @@ else:
     filtro = get_date_filter(st.session_state.selected_period)
     df = None
 
-    df = fetch_data(st.session_state.selected_test_type, filtro)
+    chave_df = f"{st.session_state.selected_test_type}_{st.session_state.selected_period}_{empresa_selecionada}"
 
-    if empresa_selecionada != "TODAS" and df is not None:
-        df = df[df["operador_id.empresa.nome"] == empresa_selecionada]
+    if "df" not in st.session_state or st.session_state.get("df_key") != chave_df:
+        df_raw = fetch_data(st.session_state.selected_test_type, filtro)
+        if empresa_selecionada != "TODAS":
+            df_raw = df_raw[df_raw["operador_id.empresa.nome"] == empresa_selecionada]
+        st.session_state.df = df_raw
+        st.session_state.df_key = chave_df
+
+    df = st.session_state.df
 
     if api.excecao is not None:
         st.error(f"Houve um erro: {api.excecao}")
