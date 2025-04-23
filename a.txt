@@ -1,0 +1,7 @@
+with st.expander("📊 Estatísticas", expanded=False):
+    st.markdown(f"- **Total de RFTs:** `{int(data.sum())}`")
+    st.markdown(f"- **Média por {agrupamento.lower()}:** `{data.mean():.2f}`")
+    st.markdown(f"- **Mediana:** `{data.median():.2f}`")
+    st.markdown(f"- **Desvio padrão:** `{data.std():.2f}`")
+    st.markdown(f"- **Máximo:** `{data.max()} ({data.idxmax()})`")
+    st.markdown(f"- **Mínimo:** `{data.min()} ({data.idxmin()})`")

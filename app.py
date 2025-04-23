@@ -1,37 +1,13 @@
 import streamlit as st
 import plotly.express as px
 from datetime import datetime, timedelta
-from utils import Server, User
+from utils import Server, render_header
 
-st.set_page_config(page_title="Dashboard TECSCI", page_icon="assets/icon.ico", layout="wide")
-
-# Sidebar com logo
-with st.sidebar:
-    st.image("assets/logo-dark.png")
-
-# Estado inicial
-if "authenticated" not in st.session_state:
-    st.session_state.authenticated = False
 if "api" not in st.session_state:
     st.session_state.api = Server()
+api = st.session_state.api 
 
-api = st.session_state.api  # acesso direto
-
-# Login
-if not st.session_state.authenticated:
-    st.title("Login")
-    username = st.text_input("Usuário")
-    password = st.text_input("Senha", type="password")
-    login_button = st.button("Entrar")
-
-    if login_button:
-        if api.login(User(username=username, password=password)):
-            st.session_state.authenticated = True
-            st.rerun()
-        else:
-            st.error(f"Erro no login: {api.excecao}")
-    st.stop()
-
+render_header("Dashboard TECSCI", is_main_page=True)
 # Inicializa estado de seleção
 if "selected_test_type" not in st.session_state:
     st.session_state.selected_test_type = None
@@ -79,7 +55,6 @@ with st.sidebar:
 
 # Conteúdo
 if not st.session_state.selected_test_type:
-    st.title("Dashboard TECSCI")
     st.info("Selecione um tipo de teste na barra lateral para começar.")
 else:
     st.title(f"Dashboard - {st.session_state.selected_test_type}")

@@ -6,23 +6,34 @@ from utils import render_header
 # HEADER
 render_header("Análise de Falhas")
 
-# LOAD DATA
+# CARREGANDO DADOS
 api = st.session_state.api
 response = api.get_rft()
 df = pd.json_normalize(response)
 
-
-# ANÁLISE POR DIA - BARRA
+### PLOT DE QNT X DIA
+st.header("Falhas por dia")
+agrupamento = st.radio("Tipo de agrupamento", options=["Dia", "Semana", "Mês"], horizontal=True)
 df["horario"] = pd.to_datetime(df["horario"])
-data = df.groupby(df["horario"].dt.date).size()
-bar_chart = px.bar(data, x=data.index, y=data.values,color_discrete_sequence=px.colors.sequential.Inferno)
-bar_chart.update_traces(showlegend=False)
-bar_chart.update_layout(xaxis=dict(tickvals=list(data.index)))
+if agrupamento == "Dia":
+    data = df.groupby(df["horario"].dt.date).size()
+elif agrupamento == "Semana":
+    data = df.groupby(df["horario"].dt.to_period("W")).size()
+elif agrupamento == "Mês":
+    data = df.groupby(df["horario"].dt.to_period("M")).size()
+data.index = data.index.astype(str)
+grafico = px.bar(
+    data,
+    x=data.index,
+    y=data.values,
+    color_discrete_sequence=px.colors.sequential.Inferno
+)
+grafico.update_traces(showlegend=False)
 st.text(f"TOTAL: {len(df)}")
-st.plotly_chart(bar_chart, use_container_width=True, theme="streamlit")
+st.plotly_chart(grafico, use_container_width=True)
 
 
-# FALHAS POR ETAPA E POR OPERADOR - BARRA + PIZZA
+# PLOT DE FALHAS X ETAPAS E FALHAS X OPERADOR
 col1, col2 = st.columns(2)
 with col1:
     st.header("Falhas por Etapa")
@@ -38,7 +49,7 @@ with col2:
     st.plotly_chart(operador_chart, use_container_width=True)
 
 
-# TIPO DE ERRO POR ETAPA - PIZZA
+# PLOT DE ERROS X ETAPAS
 st.header("Tipos de Erro por Etapa")
 etapas_disponiveis = ["TODOS"] + sorted(df["erro_id.etapa.nome"].dropna().unique().tolist())
 etapa_selecionada = st.selectbox("Selecione a Etapa", etapas_disponiveis)
@@ -53,6 +64,6 @@ st.text(f"TOTAL: {len(df_pizza)}")
 st.plotly_chart(erro_chart, use_container_width=True)
 
 
-# DATAFRAME
+# DATAFRAME COMPLETO
 with st.expander("Base de Dados", expanded=False):
     st.dataframe(df, use_container_width=True, hide_index=True)

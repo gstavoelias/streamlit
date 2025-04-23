@@ -33,6 +33,7 @@ if option == "RFT + MANUTENÇÃO":
     data_rft = st.date_input("Data do RFT", format="DD/MM/YYYY", key="data_rft_man")
 
     # Campos MANUTENÇÃO
+    tecnico_selecionado = st.selectbox("Técnico", sorted(operador_map.keys()), index=None, placeholder="Selecionar Técnico")
     solucao_selecionada = st.selectbox("Solução", sorted(solucao_map.keys()), index=None, placeholder="Selecionar solução")
     descricao_solucao = st.text_input("Descrição da Solução", max_chars=150)
     duracao = st.text_input("Duração (min)")
@@ -58,7 +59,7 @@ if option == "RFT + MANUTENÇÃO":
                 last_rft = rfts[-1]
                 try:
                     response_man = api.post_manutencao(
-                        operador_map[operador_selecionado],
+                        operador_map[tecnico_selecionado],
                         last_rft["id"],
                         solucao_map[solucao_selecionada],
                         descricao_solucao,
@@ -123,6 +124,9 @@ elif option == "MANUTENÇÃO":
     
     operadores = load_data("operadores", api.get_operators)
     operador_map = {o["nome"]: o["id"] for o in operadores}
+
+    solucoes = load_data("solucoes", api.get_solucao)
+    solucao_map = {s["nome"]: s["id"] for s in solucoes}
 
 
     rft_selecionado = st.selectbox("RFT", sorted(rft_map.keys()), index=None, placeholder="Selecionar RFT")

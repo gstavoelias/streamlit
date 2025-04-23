@@ -11,18 +11,29 @@ api = st.session_state.api
 response = api.get_manutencao()
 df = pd.json_normalize(response)
 
-# ANALISE POR DIA - BARRA
+# PLOT DE QNT X DIA
 st.header("Manutenções por dia")
-st.text(f"TOTAL: {len(df)}")
+agrupamento = st.radio("Tipo de agrupamento", options=["Dia", "Semana", "Mês"], horizontal=True)
 df["horario"] = pd.to_datetime(df["horario"])
-data = df.groupby(df["horario"].dt.date).size()
-bar_chart = px.bar(data, x=data.index, y=data.values,color_discrete_sequence=px.colors.sequential.Viridis_r[3:])
-bar_chart.update_traces(showlegend=False)
-bar_chart.update_layout(xaxis=dict(tickvals=list(data.index)))
-st.plotly_chart(bar_chart, use_container_width=True, theme="streamlit")
+if agrupamento == "Dia":
+    data = df.groupby(df["horario"].dt.date).size()
+elif agrupamento == "Semana":
+    data = df.groupby(df["horario"].dt.to_period("W")).size()
+elif agrupamento == "Mês":
+    data = df.groupby(df["horario"].dt.to_period("M")).size()
+data.index = data.index.astype(str)
+grafico = px.bar(
+    data,
+    x=data.index,
+    y=data.values,
+    color_discrete_sequence=px.colors.sequential.Viridis_r[3:]
+)
+grafico.update_traces(showlegend=False)
+st.text(f"TOTAL: {len(df)}")
+st.plotly_chart(grafico, use_container_width=True)
 
 
-# SOLUCAO POR ERRO - PIZZA
+# PLOT DE SOLUCOES X ERROS
 st.header("Soluções por Erro:")
 df["etapa_erro"] = df["rft.erro_id.etapa.nome"] + " – " + df["rft.erro_id.nome"]
 opcoes = df["etapa_erro"].dropna().unique().tolist()
@@ -46,7 +57,7 @@ st.text(f"TOTAL: {len(df_filtrado)}")
 st.plotly_chart(grafico_solucao, use_container_width=True)
 
 
-# POR OPERADOR - BARRA
+# PLOT DE MANUTENCOES X OPERADORES
 st.header("Manutenções por Operador")
 por_operador = df["operador_id.nome"].value_counts().reset_index()
 por_operador.columns = ["Operador", "Quantidade"]
@@ -55,6 +66,6 @@ st.text(f"TOTAL: {len(por_operador)}")
 st.plotly_chart(chart, use_container_width=True)
 
 
-# DATAFRAME
+# DATAFRAME COMPLETO
 with st.expander("Base de Dados", expanded=False):
     st.dataframe(df, use_container_width=True, hide_index=True)
