@@ -3,6 +3,8 @@ import plotly.express as px
 from datetime import datetime, timedelta
 from utils import Server, render_header
 import pandas as pd
+from streamlit_extras.metric_cards import style_metric_cards
+import pytz
 
 if "api" not in st.session_state:
     st.session_state.api = Server()
@@ -69,8 +71,6 @@ with st.sidebar:
 if not st.session_state.selected_test_type or not st.session_state.selected_period:
     st.info("Selecione um tipo de teste na barra lateral para começar.")
 else:
-    st.title(f"Dashboard - {st.session_state.selected_test_type}")
-
     filtro = get_date_filter(st.session_state.selected_period)
     df = None
 
@@ -84,6 +84,7 @@ else:
         st.session_state.df_key = chave_df
 
     df = st.session_state.df
+    df["horario"] = pd.to_datetime(df["horario"])
 
     if api.excecao is not None:
         st.error(f"Houve um erro: {api.excecao}")
@@ -109,7 +110,9 @@ else:
         bar_chart = px.bar(data, x=data.index, y=data.values, text=labels, color_discrete_sequence=px.colors.sequential.Blues_r[1:])
         bar_chart.update_traces(showlegend=False, textposition="outside")
         bar_chart.update_layout(xaxis=dict(tickvals=list(data.index)))
-        st.text(f"TOTAL: {len(df)}")
+        with st.container():
+            st.metric("TOTAL", value=len(df))
+
         st.plotly_chart(bar_chart, use_container_width=True)
         with st.expander("📊 Estatísticas", expanded=False):
             st.markdown(f"- **Total de TCUs:** `{int(data.sum())}`")
