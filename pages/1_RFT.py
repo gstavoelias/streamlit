@@ -14,7 +14,7 @@ df = pd.json_normalize(response)
 ### PLOT DE QNT X DIA
 st.header("Falhas por dia")
 agrupamento = st.radio("Tipo de agrupamento", options=["Dia", "Semana", "Mês"], horizontal=True)
-df["horario"] = pd.to_datetime(df["horario"])
+df["horario"] = pd.to_datetime(df["horario"], format='ISO8601')
 if agrupamento == "Dia":
     data = df.groupby(df["horario"].dt.date).size()
 elif agrupamento == "Semana":
